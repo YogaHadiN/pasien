@@ -15,5 +15,5 @@ use App\User;
 */
 
 Route::get('/', function () {
-	return 'oye';
+	return view('welcome');
 });
