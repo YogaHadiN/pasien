@@ -32,7 +32,7 @@ class filterAntrianHanyaHariIni
     }
 
 	public function redirectFail(){
-		/* return redirect('antrianperiksa/fail'); */
+		return redirect('antrianperiksa/fail');
 	}
 	
 }
