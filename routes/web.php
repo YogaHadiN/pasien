@@ -14,6 +14,9 @@ use App\User;
 |
 */
 
-Route::get('/', function () {
-	return User::all();
-});
+/* Route::get('/', function () { */
+/* 	return User::all(); */
+/* }); */
+
+Route::get('antrianperiksa/fail', 'AntrianController@fail');
+Route::get('antrianperiksa/{id}', 'AntrianController@antri');
