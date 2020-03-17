@@ -67,13 +67,12 @@
         <div class="flex-center position-ref full-height">
             <div class="content">
 				<h1>KLINIK JATI ELOK</h1>
-				<h2>Antrian Terakhir</h2>
-				<h2>Pada {{ date('d M Y H:i:s') }}</h2>
-                <div class="title m-b-md">
-					{{ $antrian_saat_ini }}
-                </div>
+				<h2>{{ date('d M Y H:i:s') }}</h2>
+				<h2>Masih ada</h2>
+                <div class="title m-b-md">{{ $antrian_pasien_ini - $antrian_saat_ini }}</div>
+				<h2>Antrian Lagi</h2>
+				<h2>Antrian Terakhir {{ $antrian_saat_ini }} </h2>
 				<h2>Nomor Antrian Anda : {{ $antrian_pasien_ini }}</h2>
-				<h2>Masih ada {{ $antrian_pasien_ini - $antrian_saat_ini }} Antrian Lagi </h2>
 				<h1>Untuk melaporkan kesalahan : </h1>
 				<h1> <a href="http://bit.ly/39WV083"> Klik Disini</a>  </h1>
             </div>
