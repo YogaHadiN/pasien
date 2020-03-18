@@ -3,7 +3,8 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use App\AntrianPeriksa;
+use App\Periksa;
+use App\AntrianPoli;
 
 class filterAntrianHanyaHariIni
 {
@@ -16,23 +17,17 @@ class filterAntrianHanyaHariIni
      */
     public function handle($request, Closure $next)
     {
+		$id      = $request->id;
+		$apl     = AntrianPoli::where('tanggal', $date('Y-m-d'))->where('id', $id)->first();
+		$periksa = Periksa::where('tanggal', $tanggal)->where('antrian', $apl->antrian )->first();
 
-		$id = $request->id;
-		/* dd('df'); */
-		try {
-			$ap = AntrianPeriksa::findOrFail($id);
-			/* dd($id); */
-			if ( $ap->tanggal != date('Y-m-d') ) {
-				return $this->redirectFail();
-			}
-		} catch (\Exception $e) {
-			return $this->redirectFail();
+		dd('apl', $apl, 'periksa', $periksa);
+		if(is_null($apl)){
+			return redirect('antrianperiksa/fail');
+		}
+		if (!is_null($periksa)) {
+			return redirect('antrianperiksa/fail');
 		}
         return $next($request);
     }
-
-	public function redirectFail(){
-		return redirect('antrianperiksa/fail');
-	}
-	
 }

@@ -15,13 +15,9 @@ class AntrianController extends Controller
         $this->middleware('avail')->only('antri');
     }
 	public function antri($id){
-		$ap                 = AntrianPeriksa::find($id);
-		/* dd($ap->poli); */
+		$ap                 = AntrianPoli::find($id);
 		$totalAntrian       = $this->totalAntrian($ap->tanggal);
-		/* dd($totalAntrian['antrians']); */
-		/* dd($ap->antrian); */
 		$antrian_pasien_ini = array_search($ap->antrian, $totalAntrian['antrians']) + 1;
-		/* dd($antrian_pasien_ini); */
 		$antrian_saat_ini   = $totalAntrian['antrian_saat_ini'];
 
 		return view('welcome', compact(
