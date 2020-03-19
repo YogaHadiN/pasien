@@ -19,11 +19,11 @@ class filterAntrianHanyaHariIni
     {
 		$id      = $request->id;
 		$apl     = AntrianPoli::where('tanggal', date('Y-m-d'))->where('id', $id)->first();
-		$periksa = Periksa::where('tanggal', date('Y-m-d'))->where('antrian', $apl->antrian )->first();
 		/* dd(['apl', $apl, 'periksa', $periksa]); */
 		if(is_null($apl)){
 			return redirect('antrianperiksa/fail');
 		}
+		$periksa = Periksa::where('tanggal', date('Y-m-d'))->where('antrian', $apl->antrian )->first();
 		if (!is_null($periksa)) {
 			return redirect('antrianperiksa/fail');
 		}
