@@ -82,7 +82,7 @@
             <div class="content">
 				<h1>Antrian sudah tidak Tersedia</h1>
 				<h1>Jika menurut anda ini kesalahan</h1>
-				<h1> <a href="http://bit.ly/reportAntrian"> Klik Disini</a>  </h1>
+				<h1> <a href="http://bit.ly/39WV083"> Klik Disini</a>  </h1>
 				<h1>Untuk Melaporkan</h1>
 				<h1>Terima Kasih</h1>
 			</div>
