@@ -68,10 +68,26 @@
             <div class="content">
 				<h1>KLINIK JATI ELOK</h1>
 				<h2>Pasien Diperiksa</h2>
-                <div class="title m-b-md">{{ $antrian }}</div>
+                <div id="nomor_antrian" class="title m-b-md">{{ $antrian }}</div>
 				{{-- <h1>Untuk melaporkan kesalahan : </h1> --}}
 				{{-- <h1> <a href="http://bit.ly/39WV083"> Klik Disini</a>  </h1> --}}
             </div>
         </div>
+		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		 <script src="https://js.pusher.com/5.1/pusher.min.js"></script>
+		  <script>
+
+			// Enable pusher logging - don't include this in production
+			Pusher.logToConsole = true;
+
+			var pusher = new Pusher('281b6730814874b6b533', {
+			  cluster: 'ap1',
+			  forceTLS: true
+			});
+			var channel = pusher.subscribe('monitor-channel');
+			channel.bind('monitor-submitted', function(data) {
+				$('#nomor_antrian').html(data.text);
+			});
+		  </script>
     </body>
 </html>
