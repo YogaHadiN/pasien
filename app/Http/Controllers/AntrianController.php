@@ -66,4 +66,11 @@ class AntrianController extends Controller
 
 		return $result;
 	}
+	public function monitor(){
+		$antrian = 'A1';
+
+		return view('monitor', compact(
+			'antrian'
+		));
+	}
 }
