@@ -123,14 +123,20 @@
 		var dt = data.text.data;
 		var antrian_terakhir_per_poli = data.text.antrian_terakhir_per_poli;
 
-		console.log('antrian_terakhir_per_poli');
-		console.log(antrian_terakhir_per_poli[1]);
-		console.log(antrian_terakhir_per_poli[2]);
-		console.log(antrian_terakhir_per_poli[3]);
-		console.log(antrian_terakhir_per_poli[4]);
+		console.log('data.text');
+		console.log(data.text);
+		console.log('dt');
+		console.log(dt);
+		console.log('dt[2]');
+		console.log(dt[2]);
+		console.log('dt[3]');
+		console.log(dt[3]);
+		console.log('dt[4]');
+		console.log(dt[4]);
 
 		$('#nomor_panggilan').html(panggilan.nomor_antrian);
 		$('#poli_panggilan').html(panggilan.poli);
+
 		$('#nomor_poli_umum').html(dt[1].nomor_antrian_terakhir);
 		$('#jumlah_poli_umum').html(dt[1].jumlah);
 		$('#nomor_poli_gigi').html(dt[2].nomor_antrian_terakhir);
@@ -139,6 +145,7 @@
 		$('#jumlah_poli_bidan').html(dt[3].jumlah);
 		$('#nomor_poli_estetik').html(dt[4].nomor_antrian_terakhir);
 		$('#jumlah_poli_estetik').html(dt[4].jumlah);
+
 		$("#antrian_terakhir_poli_umum").html(antrian_terakhir_per_poli[1]);
 		$("#antrian_terakhir_poli_gigi").html(antrian_terakhir_per_poli[2]);
 		$("#antrian_terakhir_poli_bidan").html(antrian_terakhir_per_poli[3]);
