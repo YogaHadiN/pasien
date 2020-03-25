@@ -58,65 +58,91 @@
     <div class="row text-center">
 		<div class="col-lg-8 no-float">
 			<h2>Pasien Dipanggil</h2>
-				<div id="nomor_antrian" class="superbig">A1</div>
-			<h2>Poli Umum</h2>
+				<div id="nomor_panggilan" class="superbig">-</div>
+			<h2 id="poli_panggilan">-</h2>
 		</div>
 		<div class="col-lg-4 full-height">
 			<h2>Pasien Diperiksa</h2>
 			<div>
-				<div class="list">A1 / 10</div>
-				<div class="list">B2 / 10</div>
-				<div class="list">C5 / 10</div>
-				<div class="list">D9 / 10</div>
+				<div class="list"><span id="nomor_poli_umum">-</span>/<span id="jumlah_poli_umum">-</span></div>
+				<div class="list"><span id="nomor_poli_gigi">-</span>/<span id="jumlah_poli_gigi">-</span></div>
+				<div class="list"><span id="nomor_poli_bidan">-</span>/<span id="jumlah_poli_bidan">-</span></div>
+				<div class="list"><span id="nomor_poli_estetik">-</span>/<span id="jumlah_poli_estetik">-</span></div>
 			</div>
 		</div>
     </div>
 	<div class="row text-center">
 		<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 no-float">
 			<h2>Pasien Diperiksa</h2>
-				<div id="nomor_antrian" class="big">A1</div>
+				<div id="antrian_terakhir_poli_umum" class="big">-</div>
 			<h2>Poli Umum</h2>
 		</div>
 		<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 no-float">
 			<h2>Pasien Diperiksa</h2>
-				<div id="nomor_antrian" class="big">B2</div>
-			<h2>Poli Gigi</h2>
-			
-		</div>
-		<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 no-float">
-			<h2>Pasien Diperiksa</h2>
-				<div id="nomor_antrian" class="big">C5</div>
-			<h2>Poli Kebidanan</h2>
-			
-		</div>
-		<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 no-float">
-			<h2>Pasien Diperiksa</h2>
-				<div id="nomor_antrian" class="big">D9</div>
-			<h2>Poli Estetik</h2>
-			
-		</div>
+			<div id="antrian_terakhir_poli_gigi" class="big">-</div>
+		<h2>Poli Gigi</h2>
+		
 	</div>
-	<div class="row">
-		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		</div>
+	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 no-float">
+		<h2>Pasien Diperiksa</h2>
+			<div id="antrian_terakhir_poli_bidan" class="big">-</div>
+		<h2>Poli Kebidanan</h2>
+		
 	</div>
-  </div>
+	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 no-float">
+		<h2>Pasien Diperiksa</h2>
+			<div id="antrian_terakhir_poli_estetik" class="big">-</div>
+		<h2>Poli Estetik</h2>
+		
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	</div>
+</div>
+</div>
 
-  <!-- Bootstrap core JavaScript -->
+<!-- Bootstrap core JavaScript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="https://js.pusher.com/5.1/pusher.min.js"></script>
 <script>
-	// Enable pusher logging - don't include this in production
+// Enable pusher logging - don't include this in production
 	Pusher.logToConsole = true;
 
 	var pusher = new Pusher('281b6730814874b6b533', {
 	  cluster: 'ap1',
 	  forceTLS: true
 	});
-	var channel = pusher.subscribe('monitor-channel');
-	channel.bind('monitor-submitted', function(data) {
-		$('#nomor_antrian').html(data.text);
+
+	var channel = pusher.subscribe('my-channel');
+	channel.bind('form-submitted', function(data) {
+		console.log('data.text.antrian_terakhir_per_poli');
+		console.log(data.text.antrian_terakhir_per_poli);
+		var panggilan = data.text.panggilan;
+		var dt = data.text.data;
+		var antrian_terakhir_per_poli = data.text.antrian_terakhir_per_poli;
+
+		console.log('antrian_terakhir_per_poli');
+		console.log(antrian_terakhir_per_poli[1]);
+		console.log(antrian_terakhir_per_poli[2]);
+		console.log(antrian_terakhir_per_poli[3]);
+		console.log(antrian_terakhir_per_poli[4]);
+
+		$('#nomor_panggilan').html(panggilan.nomor_antrian);
+		$('#poli_panggilan').html(panggilan.poli);
+		$('#nomor_poli_umum').html(dt[1].nomor_antrian_terakhir);
+		$('#jumlah_poli_umum').html(dt[1].jumlah);
+		$('#nomor_poli_gigi').html(dt[2].nomor_antrian_terakhir);
+		$('#jumlah_poli_gigi').html(dt[2].jumlah);
+		$('#nomor_poli_bidan').html(dt[3].nomor_antrian_terakhir);
+		$('#jumlah_poli_bidan').html(dt[3].jumlah);
+		$('#nomor_poli_estetik').html(dt[4].nomor_antrian_terakhir);
+		$('#jumlah_poli_estetik').html(dt[4].jumlah);
+		$("#antrian_terakhir_poli_umum").html(antrian_terakhir_per_poli[1]);
+		$("#antrian_terakhir_poli_gigi").html(antrian_terakhir_per_poli[2]);
+		$("#antrian_terakhir_poli_bidan").html(antrian_terakhir_per_poli[3]);
+		$("#antrian_terakhir_poli_estetik").html(antrian_terakhir_per_poli[4]);
 	});
 </script>
 
