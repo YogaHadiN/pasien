@@ -56,12 +56,12 @@
   <!-- Page Content -->
   <div class="container">
     <div class="row text-center">
-		<div class="col-lg-8 no-float">
+		<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 no-float">
 			<h2>Pasien Dipanggil</h2>
 				<div id="nomor_panggilan" class="superbig">-</div>
 			<h2 id="poli_panggilan">-</h2>
 		</div>
-		<div class="col-lg-4 full-height">
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 full-height">
 			<h2>Pasien Diperiksa</h2>
 			<div>
 				<div class="list"><span id="nomor_poli_umum">-</span>/<span id="jumlah_poli_umum">-</span></div>
@@ -72,24 +72,24 @@
 		</div>
     </div>
 	<div class="row text-center">
-		<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 no-float">
+		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 no-float">
 			<h2>Pasien Diperiksa</h2>
 				<div id="antrian_terakhir_poli_umum" class="big">-</div>
 			<h2>Poli Umum</h2>
 		</div>
-		<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 no-float">
+		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 no-float">
 			<h2>Pasien Diperiksa</h2>
 			<div id="antrian_terakhir_poli_gigi" class="big">-</div>
 		<h2>Poli Gigi</h2>
 		
 	</div>
-	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 no-float">
+	<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 no-float">
 		<h2>Pasien Diperiksa</h2>
 			<div id="antrian_terakhir_poli_bidan" class="big">-</div>
 		<h2>Poli Kebidanan</h2>
 		
 	</div>
-	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 no-float">
+	<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 no-float">
 		<h2>Pasien Diperiksa</h2>
 			<div id="antrian_terakhir_poli_estetik" class="big">-</div>
 		<h2>Poli Estetik</h2>
@@ -97,7 +97,7 @@
 	</div>
 </div>
 <div class="row">
-	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<div class="col-xs-3 col-sm-12 col-md-12 col-lg-12">
 	</div>
 </div>
 </div>
@@ -108,6 +108,9 @@
 <script src="https://js.pusher.com/5.1/pusher.min.js"></script>
 <script>
 // Enable pusher logging - don't include this in production
+	var channel_name = getChannelName();
+	var event_name   = 'form-submitted';
+
 	Pusher.logToConsole = true;
 
 	var pusher = new Pusher('281b6730814874b6b533', {
@@ -115,24 +118,11 @@
 	  forceTLS: true
 	});
 
-	var channel = pusher.subscribe('my-channel');
-	channel.bind('form-submitted', function(data) {
-		console.log('data.text.antrian_terakhir_per_poli');
-		console.log(data.text.antrian_terakhir_per_poli);
+	var channel = pusher.subscribe(channel_name);
+	channel.bind(event_name, function(data) {
 		var panggilan = data.text.panggilan;
 		var dt = data.text.data;
 		var antrian_terakhir_per_poli = data.text.antrian_terakhir_per_poli;
-
-		console.log('data.text');
-		console.log(data.text);
-		console.log('dt');
-		console.log(dt);
-		console.log('dt[2]');
-		console.log(dt[2]);
-		console.log('dt[3]');
-		console.log(dt[3]);
-		console.log('dt[4]');
-		console.log(dt[4]);
 
 		$('#nomor_panggilan').html(panggilan.nomor_antrian);
 		$('#poli_panggilan').html(panggilan.poli);
@@ -151,6 +141,15 @@
 		$("#antrian_terakhir_poli_bidan").html(antrian_terakhir_per_poli[3]);
 		$("#antrian_terakhir_poli_estetik").html(antrian_terakhir_per_poli[4]);
 	});
+
+	function getChannelName(){
+		@if( gethostname() == 'Yogas-Mac.local' )
+			var channel_name = 'my-channel2';
+		@else
+			var channel_name = 'my-channel';
+		@endif
+		return channel_name;
+	}
 </script>
 
 </body>
