@@ -71,7 +71,7 @@
 
 <body>
   <!-- Page Content -->
-  <div class="container">
+  <div class="my-custom-container">
     <div class="row text-center">
 		<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 no-float">
 			<h2>Pasien Dipanggil</h2>
