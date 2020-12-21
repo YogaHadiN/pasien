@@ -19,19 +19,24 @@
 		min-width:500px;
 		height:100%;
 	}
+	.flex-container {
+	  display: flex;
+	  flex-direction: column;
+	  min-height: 100px;
+	}
 	.row div{
 		border: 1px solid black;
 	}
 	.superbig{
-		font-size: 200px;
-		padding : 100 50 !important;
-	}
-	.big{
 		font-size: 100px;
 		padding : 100 50 !important;
 	}
+	.big{
+		font-size: 50px;
+		padding : 100 50 !important;
+	}
 	.list {
-		font-size : 50px;
+		font-size : 25px;
 	}
 	.full-height
 	{
@@ -59,7 +64,7 @@
 
 <body>
   <!-- Page Content -->
-  <div class="container my-custom-container">
+  <div class="container my-custom-container flex-container">
     <div class="row text-center">
 		<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 no-float">
 			<h2>Pasien Dipanggil</h2>
@@ -67,7 +72,7 @@
 			<h2 id="poli_panggilan">-</h2>
 		</div>
 		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 full-height">
-			<h2>iPasien Diperiksa</h2>
+			<h2>xPasien Diperiksa</h2>
 			<div>
 				<div class="list"><span id="nomor_poli_umum">-</span>/<span id="jumlah_poli_umum">-</span></div>
 				<div class="list"><span id="nomor_poli_gigi">-</span>/<span id="jumlah_poli_gigi">-</span></div>
