@@ -67,12 +67,12 @@
   <div class="container my-custom-container flex-container">
     <div class="row text-center">
 		<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 no-float">
-			<h2>Pasien Dipanggil</h2>
+			<h3>Pasien Dipanggil</h3>
 				<div id="nomor_panggilan" class="superbig">-</div>
-			<h2 id="poli_panggilan">-</h2>
+			<h3 id="poli_panggilan">-</h3>
 		</div>
 		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 full-height">
-			<h2>xPasien Diperiksa</h2>
+			<h3>xPasien Diperiksa</h3>
 			<div>
 				<div class="list"><span id="nomor_poli_umum">-</span>/<span id="jumlah_poli_umum">-</span></div>
 				<div class="list"><span id="nomor_poli_gigi">-</span>/<span id="jumlah_poli_gigi">-</span></div>
@@ -83,26 +83,26 @@
     </div>
 	<div class="row text-center">
 		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 no-float">
-			<h2>Pasien Diperiksa</h2>
+			<h3>Pasien Diperiksa</h3>
 				<div id="antrian_terakhir_poli_umum" class="big">-</div>
-			<h2>Poli Umum</h2>
+			<h3>Poli Umum</h3>
 		</div>
 		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 no-float">
-			<h2>Pasien Diperiksa</h2>
+			<h3>Pasien Diperiksa</h3>
 			<div id="antrian_terakhir_poli_gigi" class="big">-</div>
-		<h2>Poli Gigi</h2>
+		<h3>Poli Gigi</h3>
 		
 	</div>
 	<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 no-float">
-		<h2>Pasien Diperiksa</h2>
+		<h3>Pasien Diperiksa</h3>
 			<div id="antrian_terakhir_poli_bidan" class="big">-</div>
-		<h2>Poli Kebidanan</h2>
+		<h3>Poli Kebidanan</h3>
 		
 	</div>
 	<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 no-float">
-		<h2>Pasien Diperiksa</h2>
+		<h3>Pasien Diperiksa</h3>
 			<div id="antrian_terakhir_poli_estetik" class="big">-</div>
-		<h2>Poli Estetik</h2>
+		<h3>Poli Estetik</h3>
 		
 	</div>
 </div>
