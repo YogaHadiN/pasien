@@ -16,7 +16,7 @@
 <style type="text/css" media="all">
 	.my-custom-container{
 		width:100%;
-		min-width:1000px;
+		min-width:500px;
 		height:auto;
 	}
 	.row div{
