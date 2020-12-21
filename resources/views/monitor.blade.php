@@ -79,7 +79,7 @@
 			<h2 id="poli_panggilan">-</h2>
 		</div>
 		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 full-height">
-			<h2>Pasien Diperiksa</h2>
+			<h2>iPasien Diperiksa</h2>
 			<div>
 				<div class="list"><span id="nomor_poli_umum">-</span>/<span id="jumlah_poli_umum">-</span></div>
 				<div class="list"><span id="nomor_poli_gigi">-</span>/<span id="jumlah_poli_gigi">-</span></div>
