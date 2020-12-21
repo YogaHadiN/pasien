@@ -17,7 +17,7 @@
 	.my-custom-container{
 		width:100%;
 		min-width:500px;
-		height:auto;
+		height:100%;
 	}
 	.row div{
 		border: 1px solid black;
