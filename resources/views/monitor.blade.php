@@ -14,22 +14,10 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 <style type="text/css" media="all">
-	@media (min-width: 768px) {
-		.my-custom-container{
-			width:600px;
-		}
-	}
-
-	@media (min-width: 992px) {
-		.my-custom-container{
-			width:720px;
-		}
-	}
-
-	@media (min-width: 1200px) {
-		.my-custom-container{
-			width:900px;
-		}
+	.my-custom-container{
+		width:100%;
+		min-width:1000px;
+		height:auto;
 	}
 	.row div{
 		border: 1px solid black;
@@ -71,7 +59,7 @@
 
 <body>
   <!-- Page Content -->
-  <div class="my-custom-container">
+  <div class="container my-custom-container">
     <div class="row text-center">
 		<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 no-float">
 			<h2>Pasien Dipanggil</h2>
