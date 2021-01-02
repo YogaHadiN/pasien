@@ -73,4 +73,8 @@ class AntrianController extends Controller
 			'antrian'
 		));
 	}
+	public function testpusher(){
+		return view('testpusher');
+	}
+	
 }

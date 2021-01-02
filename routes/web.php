@@ -21,3 +21,5 @@ use App\User;
 Route::get('antrianperiksa/monitor', 'AntrianController@monitor');
 Route::get('antrianperiksa/fail', 'AntrianController@fail');
 Route::get('antrianperiksa/{id}', 'AntrianController@antri');
+Route::get('/', 'AntrianController@testpusher');
+

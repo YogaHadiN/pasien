@@ -59,6 +59,10 @@
 		padding-bottom: 99999px;
 	}
 </style>
+<!-- Bootstrap core JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://js.pusher.com/5.1/pusher.min.js"></script>
 
 </head>
 
@@ -112,18 +116,14 @@
 </div>
 </div>
 
-<!-- Bootstrap core JavaScript -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script src="https://js.pusher.com/5.1/pusher.min.js"></script>
 <script>
 // Enable pusher logging - don't include this in production
-	var channel_name = getChannelName();
+	var channel_name = 'my-channel';
 	var event_name   = 'form-submitted';
 
 	Pusher.logToConsole = true;
 
-	var pusher = new Pusher('281b6730814874b6b533', {
+	var pusher = new Pusher('7d5ef12846803696f64d', {
 	  cluster: 'ap1',
 	  forceTLS: true
 	});
@@ -152,14 +152,9 @@
 		$("#antrian_terakhir_poli_estetik").html(antrian_terakhir_per_poli[4]);
 	});
 
-	function getChannelName(){
-		@if( gethostname() == 'Yogas-Mac.local' )
-			var channel_name = 'my-channel2';
-		@else
-			var channel_name = 'my-channel';
-		@endif
-		return channel_name;
-	}
+	channel.bind('pusher:subscription_succeeded', function(members) {
+	// alert('successfully subscribed!');
+	});
 </script>
 
 </body>
