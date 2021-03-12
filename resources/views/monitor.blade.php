@@ -108,12 +108,12 @@
 <script src="https://js.pusher.com/5.1/pusher.min.js"></script>
 <script>
 // Enable pusher logging - don't include this in production
-	var channel_name = getChannelName();
+	var channel_name = 'my-channel';
 	var event_name   = 'form-submitted';
 
 	Pusher.logToConsole = true;
 
-	var pusher = new Pusher('281b6730814874b6b533', {
+	var pusher = new Pusher('7d5ef12846803696f64d', {
 	  cluster: 'ap1',
 	  forceTLS: true
 	});
