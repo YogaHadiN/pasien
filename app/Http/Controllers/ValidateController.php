@@ -61,14 +61,19 @@ class ValidateController extends Controller
             $query .="'403';"; //rapid test antibodi
         }
         $data = DB::select($query);
-        if ( count($data) ) {
-            $nama = $data[0]->nama;
-            $tanggal = $data[0]->tanggal;
-            $pemeriksaan = $antigen ? 'Rapid Antigen COVID 19' : 'Rapid Antibodi COVID 19';
-            return 'Halaman ini menyatakan bahwa benar ' . ucwords($nama) . ' telah melakukan pemeriksaan ' . $pemeriksaan . ' di Klinik Jati Elok pada tanggal ' . $tanggal;
-        } else {
-            return 'Data tidak ditemukan Mohon hubungi 0215977529 untuk verifikasi lebih lanjut';
-        }
+
+        return view('validasi.rapid', compact(
+            'data',
+            'antigen'
+        ));
+        /* if ( count($data) ) { */
+        /*     $nama = $data[0]->nama; */
+        /*     $tanggal = $data[0]->tanggal; */
+        /*     $pemeriksaan = $antigen ? 'Rapid Antigen COVID 19' : 'Rapid Antibodi COVID 19'; */
+        /*     return 'Halaman ini menyatakan bahwa benar ' . ucwords($nama) . ' telah melakukan pemeriksaan ' . $pemeriksaan . ' di Klinik Jati Elok pada tanggal ' . $tanggal; */
+        /* } else { */
+        /*     return 'Data tidak ditemukan Mohon hubungi 0215977529 untuk verifikasi lebih lanjut'; */
+        /* } */
     }
     
     
