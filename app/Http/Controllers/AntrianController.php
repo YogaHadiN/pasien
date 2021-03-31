@@ -11,9 +11,12 @@ class AntrianController extends Controller
 {
 	  public function __construct()
     {
-		
         $this->middleware('avail')->only('antri');
     }
+	  public function index(){
+	  	return 'oke';
+	  }
+	  
 	public function antri($id){
 		$ap                 = AntrianPoli::find($id);
 		$totalAntrian       = $this->totalAntrian($ap->tanggal);
