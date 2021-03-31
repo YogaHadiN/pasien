@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Periksa;
 use DB;
+use Crypt;
 
 class ValidateController extends Controller
 {
