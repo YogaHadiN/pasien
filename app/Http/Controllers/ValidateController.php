@@ -9,7 +9,7 @@ class ValidateController extends Controller
 {
     public function antigen($id){
 
-        dd( Periksa::find($id) );
+        dd( Periksa::find($id)->transaksi_periksa );
     }
     
 }
