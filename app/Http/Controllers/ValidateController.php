@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Periksa;
 use DB;
+use Carbon\Carbon;
 use Crypt;
 
 class ValidateController extends Controller
@@ -26,15 +27,24 @@ class ValidateController extends Controller
         $query .= "JOIN pasiens as ps on ps.id = px.pasien_id ";
         $query .= "WHERE periksa_id = '{$id}'";
         $data = DB::select($query);
-        if ( count($data) ) {
-            $nama = $data[0]->nama;
-            $tanggal_mulai = $data[0]->tanggal_mulai;
-            $hari = $data[0]->hari;
-            $tanggal = $data[0]->tanggal;
-            return 'Halaman ini menyatakan bahwa benar ' . ucwords($nama) . ' Mengajukan Izin Sakit mulai tanggal ' . $tanggal_mulai . ' selama ' . $hari. ' Hari di Klinik Jati Elok pada tanggal ' . $tanggal;
-        } else {
-            return 'Data tidak ditemukan Mohon hubungi 0215977529 untuk verifikasi lebih lanjut';
+        $nama          = '';
+        $tanggal_mulai = '';
+        $hari          = '';
+        $tanggal       = '';
+        if (count($data)) {
+            $nama          = $data[0]->nama;
+            $tanggal_mulai = Carbon::parse($data[0]->tanggal_mulai);
+            $hari          = $data[0]->hari;
+            $tanggal       = Carbon::parse($data[0]->tanggal);
         }
+        return view('validasi.surat_sakit', compact(
+            'data',
+            'nama',
+            'tanggal_mulai',
+            'hari',
+            'tanggal'
+        ));
+        return 'Halaman ini menyatakan bahwa benar ' . ucwords($nama) . ' Mengajukan Izin Sakit mulai tanggal ' . $tanggal_mulai . ' selama ' . $hari. ' Hari di Klinik Jati Elok pada tanggal ' . $tanggal;
     }
     public function templateRapid($antigen, $id){
         $query  = "SELECT ";
