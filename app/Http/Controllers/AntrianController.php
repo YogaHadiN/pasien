@@ -32,7 +32,6 @@ class AntrianController extends Controller
 		return view('unavailable');
 	}
 	
-	
 	public function totalAntrian($tanggal){
 		$antrians = [];
 		$apx_per_tanggal = AntrianPeriksa::where('tanggal',  $tanggal)

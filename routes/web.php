@@ -20,5 +20,8 @@ use App\User;
 
 Route::get('/', 'AntrianController@index');
 Route::get('antrianperiksa/monitor', 'AntrianController@monitor');
+Route::get('validasi/antigen/{id}', 'ValidateController@antigen');
+Route::get('validasi/antibodi/{id}', 'ValidateController@antibodi');
+Route::get('validasi/surat_sakit/{id}', 'ValidateController@surat_sakit');
 Route::get('antrianperiksa/fail', 'AntrianController@fail');
 Route::get('antrianperiksa/{id}', 'AntrianController@antri');
