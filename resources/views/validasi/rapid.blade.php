@@ -24,8 +24,9 @@
         <div class="alert alert-success" role="alert">
             <h3>Halaman ini menyatakan bahwa benar</h3>
             <h1>{{ ucwords($data[0]->nama) }}</h1>
-            <h3>Melakukan pemeriksaan {{ $antigen ? 'Antigen' : 'Antibodi' }}</h3>
-            <h3>Saat berobat pada tanggal {{ \Carbon\Carbon::parse($data[0]->tanggal)->format('d M Y') }}</h3>
+            <h3>Melakukan pemeriksaan {{ $antigen ? 'Antigen SARS-Cov2' : 'Antibodi SARS-Cov2' }}</h3>
+            <h3>Tanggal {{ \Carbon\Carbon::parse($data[0]->tanggal)->format('d M Y') }}</h3>
+            <h3>di Klinik Jati Elok</h3>
         </div>
     @else
         <div class="alert alert-danger" role="alert">
