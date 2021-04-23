@@ -18,15 +18,15 @@
 		border: 1px solid black;
 	}
 	.superbig{
-		font-size: 200px;
+		font-size: 150px;
 		padding : 100 50 !important;
 	}
 	.big{
-		font-size: 100px;
+		font-size: 60px;
 		padding : 100 50 !important;
 	}
 	.list {
-		font-size : 50px;
+		font-size : 30px;
 	}
 	.full-height
 	{
