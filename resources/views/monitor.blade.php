@@ -16,6 +16,7 @@
 <style type="text/css" media="all">
 	* {
 		box-sizing: border-box;
+		text-align: center;
 	}
 	.column2 {
 	  float: left;
@@ -45,7 +46,6 @@
 		display: flex; 
 		align-items: stretch;
 		overflow: hidden; 
-		padding: 0px 15px;
 	}
 
 	/* Clear floats after the columns */
@@ -68,10 +68,6 @@
 	.list {
 		font-size : 25px;
 	}
-	{{-- .full-height --}}
-	{{-- { --}}
-	{{-- 	height: 100%; --}}
-	{{-- } --}}
 	html, body {
 		background-color: #fff;
 		color: #636b6f;
@@ -80,11 +76,8 @@
 		height: 100vh;
 		margin: 0;
 	}
-
     .container{
         max-width: 970px;
-		{{-- margin-left: 0px; --}}
-		{{-- margin-right: 0px; --}}
     }
 
 	[class*="col-"]{
