@@ -70,7 +70,7 @@
 	}
 
     .container{
-        max-width: 370px;
+        max-width: 970px;
 		margin-left: 0px;
 		margin-right: 0px;
     }
