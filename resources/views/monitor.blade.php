@@ -43,11 +43,10 @@
 	.row{
 		overflow: hidden; 
 	}
-  .container {
-    margin-left: 0;
-    margin-right: 0;
-    max-width: 100% !important;
-  }
+
+    .container{
+        max-width: 970px;
+    }
 
 	[class*="col-"]{
 		margin-bottom: -99999px;
