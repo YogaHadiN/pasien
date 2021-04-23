@@ -44,9 +44,9 @@
 		overflow: hidden; 
 	}
 
-    .container{
-        max-width: 370px;
-    }
+    {{-- .container{ --}}
+    {{--     max-width: 370px; --}}
+    {{-- } --}}
 
 	[class*="col-"]{
 		margin-bottom: -99999px;
