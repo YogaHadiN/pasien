@@ -42,7 +42,10 @@
 		width: 30%;
 	}
 	.row {
-		display: flex; align-items: stretch;
+		display: flex; 
+		align-items: stretch;
+		overflow: hidden; 
+		padding: 0px 15px;
 	}
 
 	/* Clear floats after the columns */
@@ -77,14 +80,11 @@
 		height: 100vh;
 		margin: 0;
 	}
-	.row{
-		overflow: hidden; 
-	}
 
     .container{
         max-width: 970px;
-		margin-left: 0px;
-		margin-right: 0px;
+		{{-- margin-left: 0px; --}}
+		{{-- margin-right: 0px; --}}
     }
 
 	[class*="col-"]{
