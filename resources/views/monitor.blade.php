@@ -17,29 +17,41 @@
 	* {
 		box-sizing: border-box;
 	}
+	.column2 {
+	  float: left;
+	  width: 25%;
+	}
+
+	/* Clear floats after the columns */
+	.row2:after {
+	  content: "";
+	  display: table;
+	  clear: both;
+	}
 
 	/* Create two unequal columns that floats next to each other */
 	.column {
 		float: left;
-		padding: 10px;
-		height: 300px; /* Should be removed. Only for demonstration */
 	}
 
 	.left {
-		width: 25%;
+		width: 70%;
 	}
 
 	.right {
-		width: 75%;
+		width: 30%;
+	}
+	.row {
+		display: flex; align-items: stretch;
 	}
 
 	/* Clear floats after the columns */
 	.row:after {
 		content: "";
-		display: table;
+		display: flex;
 		clear: both;
 	}
-	.row div{
+	.row div, .row2 div{
 		border: 1px solid black;
 	}
 	.superbig{
@@ -53,10 +65,10 @@
 	.list {
 		font-size : 25px;
 	}
-	.full-height
-	{
-		height: 100%;
-	}
+	{{-- .full-height --}}
+	{{-- { --}}
+	{{-- 	height: 100%; --}}
+	{{-- } --}}
 	html, body {
 		background-color: #fff;
 		color: #636b6f;
@@ -102,25 +114,25 @@
 			</div>
 		</div>
     </div>
-	<div class="row text-center">
-		<div class="col-xs-3 no-float">
+	<div class="row2 text-center">
+		<div class="column2 no-float">
 			<h2>Pasien Diperiksa</h2>
 				<div id="antrian_terakhir_poli_umum" class="big">-</div>
 			<h2>Poli Umum</h2>
 		</div>
-		<div class="col-xs-3 no-float">
+		<div class="column2 no-float">
 			<h2>Pasien Diperiksa</h2>
 			<div id="antrian_terakhir_poli_gigi" class="big">-</div>
 		<h2>Poli Gigi</h2>
 		
 	</div>
-	<div class="col-xs-3 no-float">
+	<div class="column2 no-float">
 		<h2>Pasien Diperiksa</h2>
 			<div id="antrian_terakhir_poli_bidan" class="big">-</div>
 		<h2>Poli Kebidanan</h2>
 		
 	</div>
-	<div class="col-xs-3 no-float">
+	<div class="column2 no-float">
 		<h2>Pasien Diperiksa</h2>
 			<div id="antrian_terakhir_poli_estetik" class="big">-</div>
 		<h2>Poli Estetik</h2>
