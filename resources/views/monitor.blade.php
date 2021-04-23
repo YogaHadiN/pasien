@@ -45,7 +45,7 @@
 	}
 
     .container{
-        max-width: 970px;
+        max-width: 470px;
     }
 
 	[class*="col-"]{
@@ -97,7 +97,6 @@
 		<h2>Pasien Diperiksa</h2>
 			<div id="antrian_terakhir_poli_estetik" class="big">-</div>
 		<h2>Poli Estetik</h2>
-		
 	</div>
 </div>
 <div class="row">
