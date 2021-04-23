@@ -14,6 +14,31 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 <style type="text/css" media="all">
+	* {
+		box-sizing: border-box;
+	}
+
+	/* Create two unequal columns that floats next to each other */
+	.column {
+		float: left;
+		padding: 10px;
+		height: 300px; /* Should be removed. Only for demonstration */
+	}
+
+	.left {
+		width: 25%;
+	}
+
+	.right {
+		width: 75%;
+	}
+
+	/* Clear floats after the columns */
+	.row:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
 	.row div{
 		border: 1px solid black;
 	}
@@ -44,9 +69,11 @@
 		overflow: hidden; 
 	}
 
-    {{-- .container{ --}}
-    {{--     max-width: 370px; --}}
-    {{-- } --}}
+    .container{
+        max-width: 370px;
+		margin-left: 0px;
+		margin-right: 0px;
+    }
 
 	[class*="col-"]{
 		margin-bottom: -99999px;
@@ -60,12 +87,12 @@
   <!-- Page Content -->
   <div class="container">
     <div class="row text-center flex-nowrap">
-		<div class="col-xs-8 no-float">
+		<div class="column left no-float">
 			<h2>Pasien Dipanggil</h2>
 				<div id="nomor_panggilan" class="superbig">-</div>
 			<h2 id="poli_panggilan">-</h2>
 		</div>
-		<div class="col-xs-4 full-height">
+		<div class="column right full-height">
 			<h2>Pasien Diperiksa</h2>
 			<div>
 				<div class="list"><span id="nomor_poli_umum">-</span>/<span id="jumlah_poli_umum">-</span></div>
