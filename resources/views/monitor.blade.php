@@ -59,7 +59,7 @@
 <body>
   <!-- Page Content -->
   <div class="container">
-    <div class="row text-center">
+    <div class="row text-center flex-nowrap">
 		<div class="col-xs-8 no-float">
 			<h2>Pasien Dipanggil</h2>
 				<div id="nomor_panggilan" class="superbig">-</div>
