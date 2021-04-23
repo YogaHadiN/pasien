@@ -18,15 +18,15 @@
 		border: 1px solid black;
 	}
 	.superbig{
-		font-size: 150px;
+		font-size: 200px;
 		padding : 100 50 !important;
 	}
 	.big{
-		font-size: 60px;
+		font-size: 100px;
 		padding : 100 50 !important;
 	}
 	.list {
-		font-size : 30px;
+		font-size : 50px;
 	}
 	.full-height
 	{
@@ -43,6 +43,11 @@
 	.row{
 		overflow: hidden; 
 	}
+  .container {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100% !important;
+  }
 
 	[class*="col-"]{
 		margin-bottom: -99999px;
