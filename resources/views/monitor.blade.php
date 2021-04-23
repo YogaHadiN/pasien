@@ -18,15 +18,15 @@
 		border: 1px solid black;
 	}
 	.superbig{
-		font-size: 200px;
-		padding : 100 50 !important;
-	}
-	.big{
 		font-size: 100px;
 		padding : 100 50 !important;
 	}
+	.big{
+		font-size: 50px;
+		padding : 100 50 !important;
+	}
 	.list {
-		font-size : 50px;
+		font-size : 25px;
 	}
 	.full-height
 	{
@@ -45,7 +45,7 @@
 	}
 
     .container{
-        max-width: 470px;
+        max-width: 370px;
     }
 
 	[class*="col-"]{
@@ -60,12 +60,12 @@
   <!-- Page Content -->
   <div class="container">
     <div class="row text-center">
-		<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 no-float">
+		<div class="col-xs-8 no-float">
 			<h2>Pasien Dipanggil</h2>
 				<div id="nomor_panggilan" class="superbig">-</div>
 			<h2 id="poli_panggilan">-</h2>
 		</div>
-		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 full-height">
+		<div class="col-xs-4 full-height">
 			<h2>Pasien Diperiksa</h2>
 			<div>
 				<div class="list"><span id="nomor_poli_umum">-</span>/<span id="jumlah_poli_umum">-</span></div>
@@ -76,24 +76,24 @@
 		</div>
     </div>
 	<div class="row text-center">
-		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 no-float">
+		<div class="col-xs-3 no-float">
 			<h2>Pasien Diperiksa</h2>
 				<div id="antrian_terakhir_poli_umum" class="big">-</div>
 			<h2>Poli Umum</h2>
 		</div>
-		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 no-float">
+		<div class="col-xs-3 no-float">
 			<h2>Pasien Diperiksa</h2>
 			<div id="antrian_terakhir_poli_gigi" class="big">-</div>
 		<h2>Poli Gigi</h2>
 		
 	</div>
-	<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 no-float">
+	<div class="col-xs-3 no-float">
 		<h2>Pasien Diperiksa</h2>
 			<div id="antrian_terakhir_poli_bidan" class="big">-</div>
 		<h2>Poli Kebidanan</h2>
 		
 	</div>
-	<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 no-float">
+	<div class="col-xs-3 no-float">
 		<h2>Pasien Diperiksa</h2>
 			<div id="antrian_terakhir_poli_estetik" class="big">-</div>
 		<h2>Poli Estetik</h2>
