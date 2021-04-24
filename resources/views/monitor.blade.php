@@ -46,6 +46,7 @@
 		display: flex; 
 		align-items: stretch;
 		overflow: hidden; 
+		padding:  0px 15px;
 	}
 
 	/* Clear floats after the columns */
@@ -58,15 +59,15 @@
 		border: 1px solid black;
 	}
 	.superbig{
-		font-size: 50px;
+		font-size: 100px;
 		padding : 100 50 !important;
 	}
 	.big{
-		font-size: 25px;
+		font-size: 50px;
 		padding : 100 50 !important;
 	}
 	.list {
-		font-size : 12px;
+		font-size : 25px;
 	}
 	html, body {
 		background-color: #fff;
@@ -93,12 +94,12 @@
   <div class="container">
     <div class="row text-center flex-nowrap">
 		<div class="column left no-float">
-			<h2>Pasien Dipanggil</h2>
+			<h3>Pasien Dipanggil</h3>
 				<div id="nomor_panggilan" class="superbig">-</div>
-			<h2 id="poli_panggilan">-</h2>
+			<h3 id="poli_panggilan">-</h3>
 		</div>
 		<div class="column right full-height">
-			<h2>Pasien Diperiksa</h2>
+			<h3>Pasien Diperiksa</h3>
 			<div>
 				<div class="list"><span id="nomor_poli_umum">-</span>/<span id="jumlah_poli_umum">-</span></div>
 				<div class="list"><span id="nomor_poli_gigi">-</span>/<span id="jumlah_poli_gigi">-</span></div>
@@ -109,26 +110,26 @@
     </div>
 	<div class="row2 text-center">
 		<div class="column2 no-float">
-			<h2>Pasien Diperiksa</h2>
+			<h3>Pasien Diperiksa</h3>
 				<div id="antrian_terakhir_poli_umum" class="big">-</div>
-			<h2>Poli Umum</h2>
+			<h3>Poli Umum</h3>
 		</div>
 		<div class="column2 no-float">
-			<h2>Pasien Diperiksa</h2>
+			<h3>Pasien Diperiksa</h3>
 			<div id="antrian_terakhir_poli_gigi" class="big">-</div>
-		<h2>Poli Gigi</h2>
+		<h3>Poli Gigi</h3>
 		
 	</div>
 	<div class="column2 no-float">
-		<h2>Pasien Diperiksa</h2>
+		<h3>Pasien Diperiksa</h3>
 			<div id="antrian_terakhir_poli_bidan" class="big">-</div>
-		<h2>Poli Kebidanan</h2>
+		<h3>Poli Kebidanan</h3>
 		
 	</div>
 	<div class="column2 no-float">
-		<h2>Pasien Diperiksa</h2>
+		<h3>Pasien Diperiksa</h3>
 			<div id="antrian_terakhir_poli_estetik" class="big">-</div>
-		<h2>Poli Estetik</h2>
+		<h3>Poli Estetik</h3>
 	</div>
 </div>
 <div class="row">
