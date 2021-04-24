@@ -58,15 +58,15 @@
 		border: 1px solid black;
 	}
 	.superbig{
-		font-size: 100px;
+		font-size: 70px;
 		padding : 100 50 !important;
 	}
 	.big{
-		font-size: 50px;
+		font-size: 35px;
 		padding : 100 50 !important;
 	}
 	.list {
-		font-size : 25px;
+		font-size : 15px;
 	}
 	html, body {
 		background-color: #fff;
