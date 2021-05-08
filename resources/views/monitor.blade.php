@@ -78,7 +78,7 @@
 		margin: 0;
 	}
     .container{
-        max-width: 970px;
+        max-width: 1170px;
     }
 
 	[class*="col-"]{
@@ -143,6 +143,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="https://js.pusher.com/5.1/pusher.min.js"></script>
 <script>
+	//console.log tiap menit
+	setInterval(function(){
+		console.log('halo');
+	}, 60000);
+
+
 // Enable pusher logging - don't include this in production
 	var channel_name = 'my-channel';
 	var event_name   = 'form-submitted';
