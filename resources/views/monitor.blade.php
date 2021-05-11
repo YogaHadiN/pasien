@@ -59,7 +59,7 @@
 		border: 1px solid black;
 	}
 	.superbig{
-		font-size: 150px;
+		font-size: 100px;
 		padding : 100 50 !important;
 	}
 	.big{
