@@ -79,7 +79,7 @@
 	}
 	@media (min-width: 1px){
 		.container {
-			width: 1440px;
+			width: 600px;
 		}
 	}
 
