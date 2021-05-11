@@ -17,6 +17,7 @@
 	* {
 		box-sizing: border-box;
 		text-align: center;
+		background-color: #3BAE85;
 	}
 	.column2 {
 	  float: left;
@@ -56,18 +57,28 @@
 		clear: both;
 	}
 	.row div, .row2 div{
-		border: 1px solid black;
 	}
-	.superbig{
-		font-size: 100px;
-		padding : 100 50 !important;
+	#dipanggil{
+		background-color: #ffffff;
+		border-radius: 25px;
+		padding: 10px 25px;
+		width: 30%;
+		margin : 0px auto;
 	}
 	.big{
-		font-size: 50px;
-		padding : 100 50 !important;
+		font-size: 40px;
+		padding : 50 25 !important;
+		border-radius: 10px;
+		background-color: #fff;
+		width: 70%;
+		margin : 0 auto;
+		font-weight: 900;
 	}
 	.list {
 		font-size : 25px;
+	}
+	.full-width {
+		width: 100%;
 	}
 	html, body {
 		background-color: #fff;
@@ -87,6 +98,33 @@
 		margin-bottom: -99999px;
 		padding-bottom: 99999px;
 	}
+	#nomor_panggilan{
+		font-weight: 900;
+		font-size: 100px;
+		background-color: #fff;
+	}
+	.text-orange {
+		color: black;
+		margin : 15px 0px;
+		font-weight: 900;
+		font-size: 20px;
+		padding : 100 50 !important;
+	}
+	.text-red {
+		background-color: #fff;
+		color: #093829;
+		font-weight: 900;
+		font-size: 20px;
+	}
+	#poli_panggilan {
+		background-color: #fff;
+	}
+	.antrian {
+		color: #fff;
+		font-size: 25px;
+		font-weight: 900;
+		padding : 10px;
+	}
 </style>
 
 </head>
@@ -94,42 +132,84 @@
 <body>
   <!-- Page Content -->
   <div class="container">
-    <div class="row text-center flex-nowrap">
-		<div class="column left no-float">
-			<h4>Pasien Dipanggil</h4>
-				<div id="nomor_panggilan" class="superbig">-</div>
-			<h4 id="poli_panggilan">-</h4>
-		</div>
-		<div class="column right full-height">
-			<h1 id="jam"></h1>
-			<div>
-				<div class="list"><span id="nomor_poli_umum">-</span>/<span id="jumlah_poli_umum">-</span></div>
-				<div class="list"><span id="nomor_poli_gigi">-</span>/<span id="jumlah_poli_gigi">-</span></div>
-				<div class="list"><span id="nomor_poli_bidan">-</span>/<span id="jumlah_poli_bidan">-</span></div>
-				<div class="list"><span id="nomor_poli_estetik">-</span>/<span id="jumlah_poli_estetik">-</span></div>
+    <div class="row text-center">
+		<div class="full-width">
+			<div class="text-center">
+				<div class="text-orange"> <strong>Pasien Dipanggil</strong> </div>
+				<div id="dipanggil">
+					<span id="nomor_panggilan" ></span>
+					<div class="text-red"><strong id="poli_panggilan">-</strong></div>
+				</div>
 			</div>
 		</div>
+		{{-- <div class="column left no-float"> --}}
+		{{-- </div> --}}
+		{{-- <div class="column right full-height"> --}}
+		{{-- 	<h1 id="jam"></h1> --}}
+		{{-- 	<div> --}}
+		{{-- 		<div class="list"><span id="nomor_poli_umum">-</span>/<span id="jumlah_poli_umum">-</span></div> --}}
+		{{-- 		<div class="list"><span id="nomor_poli_gigi">-</span>/<span id="jumlah_poli_gigi">-</span></div> --}}
+		{{-- 		<div class="list"><span id="nomor_poli_bidan">-</span>/<span id="jumlah_poli_bidan">-</span></div> --}}
+		{{-- 		<div class="list"><span id="nomor_poli_estetik">-</span>/<span id="jumlah_poli_estetik">-</span></div> --}}
+		{{-- 	</div> --}}
+		{{-- </div> --}}
     </div>
 	<div class="row2 text-center">
 		<div class="column2 no-float">
-			<h4>Poli Umum</h4>
-				<div id="antrian_terakhir_poli_umum" class="big">-</div>
+			<div class="text-orange">Poli Umum</div>
+			<div id="antrian_terakhir_poli_umum" class="big">-</div>
+			<div class="antrian" id="antrian_poli_umum">
+				<div> A1 </div>
+				<div> A1 </div>
+				<div> A1 </div>
+				<div> A1 </div>
+				<div> A1 </div>
+			</div>
 		</div>
 		<div class="column2 no-float">
-			<h4>Poli Gigi</h4>
+			<div class="text-orange">Poli Gigi</div>
 			<div id="antrian_terakhir_poli_gigi" class="big">-</div>
+			<div class="antrian" id="antrian_poli_gigi">
+				<div> A1 </div>
+				<div> A1 </div>
+				<div> A1 </div>
+				<div> A1 </div>
+				<div> A1 </div>
+			</div>
 		</div>
 		<div class="column2 no-float">
-				<h4>Poli Kebidanan</h4>
-				<div id="antrian_terakhir_poli_bidan" class="big">-</div>
+			<div class="text-orange">Poli Kebidanan</div>
+			<div id="antrian_terakhir_poli_bidan" class="big">-</div>
+			<div class="antrian" id="antrian_poli_bidan">
+				<div> A1 </div>
+				<div> A1 </div>
+				<div> A1 </div>
+				<div> A1 </div>
+				<div> A1 </div>
+			</div>
+
 		</div>
 		<div class="column2 no-float">
-			<h4>Antrian Kasir</h4>
+			<div class="text-orange">Antrian Kasir</div>
 			<div id="antrian_terakhir_kasir" class="big">-</div>
+			<div class="antrian" id="antrian_kasir">
+				<div> A1 </div>
+				<div> A1 </div>
+				<div> A1 </div>
+				<div> A1 </div>
+				<div> A1 </div>
+			</div>
 		</div>
 		<div class="column2 no-float">
-			<h4>Antrian Apotek</h4>
+			<div class="text-orange">Antrian Apotek</div>
 			<div id="antrian_terakhir_apotek" class="big">-</div>
+			<div class="antrian" id="antrian_apotek">
+				<div> A1 </div>
+				<div> A1 </div>
+				<div> A1 </div>
+				<div> A1 </div>
+				<div> A1 </div>
+			</div>
 		</div>
 	</div>
 <p id="hitung">
