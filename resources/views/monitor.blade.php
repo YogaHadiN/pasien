@@ -20,7 +20,7 @@
 	}
 	.column2 {
 	  float: left;
-	  width: 25%;
+	  width: 20%;
 	}
 
 	/* Clear floats after the columns */
@@ -59,7 +59,7 @@
 		border: 1px solid black;
 	}
 	.superbig{
-		font-size: 100px;
+		font-size: 150px;
 		padding : 100 50 !important;
 	}
 	.big{
@@ -77,9 +77,11 @@
 		height: 100vh;
 		margin: 0;
 	}
-    .container{
-        max-width: 1370px;
-    }
+	@media (min-width: 1400px){
+		.container {
+			width: 1440px;
+		}
+	}
 
 	[class*="col-"]{
 		margin-bottom: -99999px;
@@ -99,7 +101,7 @@
 			<h3 id="poli_panggilan">-</h3>
 		</div>
 		<div class="column right full-height">
-			<h3>Pasien Diperiksa</h3>
+			<h1 id="jam"></h1>
 			<div>
 				<div class="list"><span id="nomor_poli_umum">-</span>/<span id="jumlah_poli_umum">-</span></div>
 				<div class="list"><span id="nomor_poli_gigi">-</span>/<span id="jumlah_poli_gigi">-</span></div>
@@ -110,29 +112,26 @@
     </div>
 	<div class="row2 text-center">
 		<div class="column2 no-float">
-			<h3>Pasien Diperiksa</h3>
-				<div id="antrian_terakhir_poli_umum" class="big">-</div>
 			<h3>Poli Umum</h3>
+				<div id="antrian_terakhir_poli_umum" class="big">-</div>
 		</div>
 		<div class="column2 no-float">
-			<h3>Pasien Diperiksa</h3>
+			<h3>Poli Gigi</h3>
 			<div id="antrian_terakhir_poli_gigi" class="big">-</div>
-		<h3>Poli Gigi</h3>
-		
+		</div>
+		<div class="column2 no-float">
+				<h3>Poli Kebidanan</h3>
+				<div id="antrian_terakhir_poli_bidan" class="big">-</div>
+		</div>
+		<div class="column2 no-float">
+			<h3>Antrian Kasir</h3>
+			<div id="antrian_terakhir_kasir" class="big">-</div>
+		</div>
+		<div class="column2 no-float">
+			<h3>Antrian Apotek</h3>
+			<div id="antrian_terakhir_apotek" class="big">-</div>
+		</div>
 	</div>
-	<div class="column2 no-float">
-		<h3>Pasien Diperiksa</h3>
-			<div id="antrian_terakhir_poli_bidan" class="big">-</div>
-		<h3>Poli Kebidanan</h3>
-		
-	</div>
-	<div class="column2 no-float">
-		<h3>Pasien Diperiksa</h3>
-			<div id="antrian_terakhir_poli_estetik" class="big">-</div>
-		<h3>Poli Estetik</h3>
-	</div>
-</div>
-
 <p id="hitung">
 	
 </p>
@@ -147,8 +146,9 @@
 	//console.log tiap menit
 	var hitung = 0
 	setInterval(function(){
-			hitung += 1;
-			$('#hitung').html(hitung);
+		var d = new Date(); // for now
+		jam = d.toLocaleTimeString();
+		$('#jam').html(jam);
 	}, 1000);
 
 
