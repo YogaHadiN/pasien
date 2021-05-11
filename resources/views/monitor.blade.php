@@ -96,9 +96,9 @@
   <div class="container">
     <div class="row text-center flex-nowrap">
 		<div class="column left no-float">
-			<h3>Pasien Dipanggil</h3>
+			<h4>Pasien Dipanggil</h4>
 				<div id="nomor_panggilan" class="superbig">-</div>
-			<h3 id="poli_panggilan">-</h3>
+			<h4 id="poli_panggilan">-</h4>
 		</div>
 		<div class="column right full-height">
 			<h1 id="jam"></h1>
@@ -112,23 +112,23 @@
     </div>
 	<div class="row2 text-center">
 		<div class="column2 no-float">
-			<h3>Poli Umum</h3>
+			<h4>Poli Umum</h4>
 				<div id="antrian_terakhir_poli_umum" class="big">-</div>
 		</div>
 		<div class="column2 no-float">
-			<h3>Poli Gigi</h3>
+			<h4>Poli Gigi</h4>
 			<div id="antrian_terakhir_poli_gigi" class="big">-</div>
 		</div>
 		<div class="column2 no-float">
-				<h3>Poli Kebidanan</h3>
+				<h4>Poli Kebidanan</h4>
 				<div id="antrian_terakhir_poli_bidan" class="big">-</div>
 		</div>
 		<div class="column2 no-float">
-			<h3>Antrian Kasir</h3>
+			<h4>Antrian Kasir</h4>
 			<div id="antrian_terakhir_kasir" class="big">-</div>
 		</div>
 		<div class="column2 no-float">
-			<h3>Antrian Apotek</h3>
+			<h4>Antrian Apotek</h4>
 			<div id="antrian_terakhir_apotek" class="big">-</div>
 		</div>
 	</div>
