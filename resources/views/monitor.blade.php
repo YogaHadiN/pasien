@@ -78,7 +78,7 @@
 		margin: 0;
 	}
     .container{
-        max-width: 1170px;
+        max-width: 1370px;
     }
 
 	[class*="col-"]{
