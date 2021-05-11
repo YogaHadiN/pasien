@@ -77,7 +77,7 @@
 		height: 100vh;
 		margin: 0;
 	}
-	@media (min-width: 1200px){
+	@media (min-width: 1px){
 		.container {
 			width: 1440px;
 		}
