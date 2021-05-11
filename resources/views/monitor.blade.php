@@ -132,11 +132,12 @@
 		<h3>Poli Estetik</h3>
 	</div>
 </div>
-<div class="row">
-	<div class="col-xs-3 col-sm-12 col-md-12 col-lg-12">
-	</div>
+
+<p id="hitung">
+	
+</p>
 </div>
-</div>
+
 
 <!-- Bootstrap core JavaScript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -144,9 +145,11 @@
 <script src="https://js.pusher.com/5.1/pusher.min.js"></script>
 <script>
 	//console.log tiap menit
+	var hitung = 0
 	setInterval(function(){
-		console.log('halo');
-	}, 60000);
+			hitung += 1;
+			$('#hitung').html(hitung);
+	}, 1000);
 
 
 // Enable pusher logging - don't include this in production
