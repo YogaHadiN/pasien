@@ -147,8 +147,10 @@
 	var hitung = 0
 	setInterval(function(){
 		var d = new Date(); // for now
+		hitung += 1;
 		jam = d.toLocaleTimeString();
 		$('#jam').html(jam);
+		$('#hitung').html(hitung);
 	}, 1000);
 
 
