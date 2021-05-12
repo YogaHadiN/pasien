@@ -13,6 +13,8 @@
   <!-- Bootstrap core CSS -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 <style type="text/css" media="all">
 	* {
 		box-sizing: border-box;
@@ -268,6 +270,8 @@
 		$("#antrian_terakhir_poli_gigi").html(antrian_terakhir_per_poli[2]);
 		$("#antrian_terakhir_poli_bidan").html(antrian_terakhir_per_poli[3]);
 		$("#antrian_terakhir_poli_estetik").html(antrian_terakhir_per_poli[4]);
+		const element = document.querySelector('#dipanggil');
+		element.classList.add('animate__animated', 'animate__bounce');
 	});
 
 	function getChannelName(){
