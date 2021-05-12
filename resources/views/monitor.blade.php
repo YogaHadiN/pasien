@@ -275,7 +275,7 @@
 		$("#antrian_terakhir_poli_estetik").html(antrian_terakhir_per_poli[4]);
 
 		refreshElement('#dipanggil');
-		$('#dipanggil').addClass('animate__animated animate__bounce');
+		$('#dipanggil').addClass('animate__animated animate__bounce animate__repeat-3');
 	});
 
 	function getChannelName(){
