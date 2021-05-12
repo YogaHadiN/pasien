@@ -16,6 +16,9 @@
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
 <style type="text/css" media="all">
+	.animate__animated.animate__bounce {
+	  --animate-duration: 1s;
+	}
 	* {
 		box-sizing: border-box;
 		text-align: center;
@@ -270,8 +273,9 @@
 		$("#antrian_terakhir_poli_gigi").html(antrian_terakhir_per_poli[2]);
 		$("#antrian_terakhir_poli_bidan").html(antrian_terakhir_per_poli[3]);
 		$("#antrian_terakhir_poli_estetik").html(antrian_terakhir_per_poli[4]);
-		const element = document.querySelector('#dipanggil');
-		element.classList.add('animate__animated', 'animate__bounce');
+
+		refreshElement('#dipanggil');
+		$('#dipanggil').addClass('animate__animated animate__bounce');
 	});
 
 	function getChannelName(){
@@ -281,6 +285,11 @@
 			var channel_name = 'my-channel';
 		@endif
 		return channel_name;
+	}
+
+	function refreshElement(id){
+	   var el = $(id);
+	   el.before( el.clone(true) ).remove();
 	}
 </script>
 
