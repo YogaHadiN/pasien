@@ -192,7 +192,7 @@
 	
 </p>
 <audio id="myAudio">
-  <source src="{{ url('sound/bel.mp3') }}" type="audio/mpeg">
+  <source src="{{ secure_url('sound/bel.mp3') }}" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
 <button type="button" class="btn btn-primary" onclick='pglPasien([]); return false'> Play Bel</button>
@@ -205,7 +205,7 @@
 <script src="https://js.pusher.com/5.1/pusher.min.js"></script>
 
 <script>
-	var base = "{{ url('/') }}";
+	var base = "{{ secure_url('/') }}";
 	console.log('base');
 	console.log(base);
 	var hitung = 0
