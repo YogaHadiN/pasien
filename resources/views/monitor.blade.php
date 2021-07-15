@@ -22,6 +22,7 @@
 	* {
 		box-sizing: border-box;
 		text-align: center;
+		{{-- background-image: url("green-mint.jpeg"); --}}
 		background-color: #3BAE85;
 	}
 	.column2 {
@@ -68,7 +69,7 @@
 		border-radius: 25px;
 		padding: 10px 25px;
 		width: 30%;
-		margin : 0px auto;
+		margin :  0px auto 20px auto;
 	}
 	.big{
 		font-size: 40px;
@@ -110,7 +111,7 @@
 		background-color: #fff;
 	}
 	.text-orange {
-		color: black;
+		color: #3B6345;
 		margin : 15px 0px;
 		font-weight: 900;
 		font-size: 20px;
@@ -164,63 +165,37 @@
 		<div class="column2 no-float">
 			<div class="text-orange">Poli Umum</div>
 			<div id="antrian_terakhir_poli_umum" class="big">-</div>
-			<div class="antrian" id="antrian_poli_umum">
-				<div> A1 </div>
-				<div> A1 </div>
-				<div> A1 </div>
-				<div> A1 </div>
-				<div> A1 </div>
-			</div>
+			<div class="antrian" id="antrian_poli_1"></div>
 		</div>
 		<div class="column2 no-float">
-			<div class="text-orange">Poli Gigi</div>
-			<div id="antrian_terakhir_poli_gigi" class="big">-</div>
-			<div class="antrian" id="antrian_poli_gigi">
-				<div> A1 </div>
-				<div> A1 </div>
-				<div> A1 </div>
-				<div> A1 </div>
-				<div> A1 </div>
-			</div>
+			<div class="text-orange">Rapid Test</div>
+			<div id="antrian_terakhir_poli_rapid_test" class="big">-</div>
+			<div class="antrian" id="antrian_poli_7"></div>
 		</div>
 		<div class="column2 no-float">
 			<div class="text-orange">Poli Kebidanan</div>
 			<div id="antrian_terakhir_poli_bidan" class="big">-</div>
-			<div class="antrian" id="antrian_poli_bidan">
-				<div> A1 </div>
-				<div> A1 </div>
-				<div> A1 </div>
-				<div> A1 </div>
-				<div> A1 </div>
-			</div>
-
+			<div class="antrian" id="antrian_poli_3"></div>
 		</div>
 		<div class="column2 no-float">
 			<div class="text-orange">Antrian Kasir</div>
 			<div id="antrian_terakhir_kasir" class="big">-</div>
-			<div class="antrian" id="antrian_kasir">
-				<div> A1 </div>
-				<div> A1 </div>
-				<div> A1 </div>
-				<div> A1 </div>
-				<div> A1 </div>
-			</div>
+			<div class="antrian" id="antrian_kasir"></div>
 		</div>
 		<div class="column2 no-float">
-			<div class="text-orange">Antrian Apotek</div>
-			<div id="antrian_terakhir_apotek" class="big">-</div>
-			<div class="antrian" id="antrian_apotek">
-				<div> A1 </div>
-				<div> A1 </div>
-				<div> A1 </div>
-				<div> A1 </div>
-				<div> A1 </div>
-			</div>
+			<div class="text-orange">Antrian Farmasi</div>
+			<div id="antrian_terakhir_farmasi" class="big">-</div>
+			<div class="antrian" id="antrian_farmasi"></div>
 		</div>
 	</div>
 <p id="hitung">
 	
 </p>
+<audio id="myAudio">
+  <source src="{{ url('sound/bel.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<button type="button" class="btn btn-primary" onclick='pglPasien([]); return false'> Play Bel</button>
 </div>
 
 
@@ -228,8 +203,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="https://js.pusher.com/5.1/pusher.min.js"></script>
+
 <script>
-	//console.log tiap menit
+	var base = "{{ url('/') }}";
+	console.log('base');
+	console.log(base);
 	var hitung = 0
 	setInterval(function(){
 		var d = new Date(); // for now
@@ -239,8 +217,6 @@
 		$('#hitung').html(hitung);
 	}, 1000);
 
-
-// Enable pusher logging - don't include this in production
 	var channel_name = 'my-channel';
 	var event_name   = 'form-submitted';
 
@@ -252,13 +228,20 @@
 	});
 
 	var channel = pusher.subscribe(channel_name);
+	var nomor_antrian = '';
 	channel.bind(event_name, function(data) {
-		var panggilan = data.text.panggilan;
-		var dt = data.text.data;
+		var panggilan                 = data.text.panggilan;
+		var dt                        = data.text.data;
 		var antrian_terakhir_per_poli = data.text.antrian_terakhir_per_poli;
+		var antrian_by_type           = data.text.antrian_by_type;
+		clear(panggilan);
+		console.log('data');
+		console.log(data);
+		console.log('panggilan');
+		console.log(panggilan);
+		console.log("typeof panggilan !== 'undefined'");
+		console.log(typeof panggilan !== 'undefined');
 
-		$('#nomor_panggilan').html(panggilan.nomor_antrian);
-		$('#poli_panggilan').html(panggilan.poli);
 
 		$('#nomor_poli_umum').html(dt[1].nomor_antrian_terakhir);
 		$('#jumlah_poli_umum').html(dt[1].jumlah);
@@ -274,8 +257,68 @@
 		$("#antrian_terakhir_poli_bidan").html(antrian_terakhir_per_poli[3]);
 		$("#antrian_terakhir_poli_estetik").html(antrian_terakhir_per_poli[4]);
 
-		refreshElement('#dipanggil');
-		$('#dipanggil').addClass('animate__animated animate__bounce animate__repeat-3');
+		$("#antrian_terakhir_poli_prolanis").html(antrian_terakhir_per_poli[6]);
+		$("#antrian_terakhir_poli_rapid_test").html(antrian_terakhir_per_poli[7]);
+		$("#antrian_terakhir_poli_mcu").html(antrian_terakhir_per_poli[8]);
+
+		$("#antrian_terakhir_kasir").html(antrian_terakhir_per_poli['antrian_kasir']);
+		$("#antrian_terakhir_farmasi").html(antrian_terakhir_per_poli['antrian_farmasi']);
+
+		var jenis_antrian_ids = data.text.jenis_antrian_ids;
+
+		for (let a = 0; a < jenis_antrian_ids.length; a++) {
+			var temp = '';
+			var antrian_periksa = antrian_by_type.antrian_periksa[jenis_antrian_ids[a].id]
+			if (typeof antrian_periksa !== 'undefined') {
+				for (let i = 0; i < antrian_periksa.length; i++) {
+					if(
+							antrian_periksa[i].antriable_type !== 'App\\AntrianApotek' &&
+							antrian_periksa[i].antriable_type !== 'App\\AntrianKasir' &&
+							antrian_periksa[i].antriable_type !== 'App\\AntrianFarmasi' &&
+							antrian_periksa[i] !== jenis_antrian_ids[a].nomor_antrian_terakhir 
+						)
+					{
+						if( antrian_periksa[i] !== jenis_antrian_ids[a].nomor_antrian_terakhir ){
+							temp += '<div>'
+							temp += ' ' + antrian_periksa[i].nomor_antrian + ' '
+							temp += '</div>'
+						}
+
+					}
+				}
+				$("#antrian_poli" + "_" + jenis_antrian_ids[a].id).html(temp);
+			}
+		}
+
+		var antrian_kasir = antrian_by_type.antrian_kasir
+		if (typeof antrian_kasir !== 'undefined') {
+			var temp = '';
+			for (let a = 0; a < antrian_kasir.length; a++) {
+				temp += '<div>';
+				temp += ' ' + antrian_kasir[a].nomor_antrian + '';
+				temp += '</div>';
+			}
+			$("#antrian_kasir").html(temp);
+		}
+
+		var antrian_farmasi = antrian_by_type['App\\AntrianFarmasi'];
+		if (typeof antrian_farmasi !== 'undefined') {
+			var temp = '';
+			for (let a = 0; a < antrian_farmasi.length; a++) {
+				temp += '<div>';
+				temp += ' ' + antrian_farmasi[a] + '';
+				temp += '</div>';
+			}
+			$("#antrian_farmasi").html(temp);
+		}
+		
+		if(typeof panggilan !== 'undefined'){
+			refreshElement('#dipanggil');
+			$('#nomor_panggilan').html(panggilan.nomor_antrian);
+			$('#poli_panggilan').html(panggilan.poli);
+			$('#dipanggil').addClass('animate__animated animate__tada animate__repeat-3');
+		}
+		pglPasien([]);
 	});
 
 	function getChannelName(){
@@ -290,6 +333,59 @@
 	function refreshElement(id){
 	   var el = $(id);
 	   el.before( el.clone(true) ).remove();
+	}
+	function clear(panggilan){
+		if(typeof panggilan !== 'undefined'){
+			$('#nomor_panggilan').html('-');
+			$('#poli_panggilan').html('-');
+		}
+		$('#nomor_poli_umum').html('-');
+		$('#jumlah_poli_umum').html('-');
+		$('#nomor_poli_gigi').html('-');
+		$('#jumlah_poli_gigi').html('-');
+		$('#nomor_poli_bidan').html('-');
+		$('#jumlah_poli_bidan').html('-');
+		$('#nomor_poli_estetik').html('-');
+		$('#jumlah_poli_estetik').html('-');
+		$("#antrian_terakhir_poli_umum").html('-');
+		$("#antrian_terakhir_poli_gigi").html('-');
+		$("#antrian_terakhir_poli_bidan").html('-');
+		$("#antrian_terakhir_poli_estetik").html('-');
+		$("#antrian_terakhir_poli_prolanis").html('-');
+		$("#antrian_terakhir_poli_rapid_test").html('-');
+		$("#antrian_terakhir_poli_mcu").html('-');
+		$("#antrian_terakhir_kasir").html('-');
+		$("#antrian_terakhir_farmasi").html('-');
+		$("#antrian_poli_1").html('');
+		$("#antrian_poli_7").html('');
+		$("#antrian_poli_3").html('');
+		$("#antrian_kasir").html('');
+		$("#antrian_farmasi").html('');
+	}
+	function pglPasien(sound){
+		var x     = document.getElementById("myAudio");
+		x.play();
+		var index = 0;
+		x.onended = function() {
+			if(index < sound.length){
+				x.src=base + '/sound/' + sound[index];
+				x.play();
+				index++;
+			} else {
+				x.src=base + '/sound/bel.mp3';
+			}
+		};
+	}
+	function panggilPasien(){
+		$.get(base + '/poli/ajax/panggil_pasien',
+			{
+				nomor_antrian: $("#nomor_panggilan").html(),
+				ruangan:       ruangan
+			},
+			function (data, textStatus, jqXHR) {
+				pglPasien(data);
+			}
+		);
 	}
 </script>
 
