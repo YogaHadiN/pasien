@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\AntrianPeriksa;
 use App\AntrianPoli;
 use App\Periksa;
+use Input;
 
 class AntrianController extends Controller
 {

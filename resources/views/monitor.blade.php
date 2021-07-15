@@ -306,19 +306,31 @@
 			var temp = '';
 			for (let a = 0; a < antrian_farmasi.length; a++) {
 				temp += '<div>';
-				temp += ' ' + antrian_farmasi[a] + '';
+				temp += ' ' + antrian_farmasi[a].nomor_antrian + '';
 				temp += '</div>';
 			}
 			$("#antrian_farmasi").html(temp);
 		}
-		
 		if(typeof panggilan !== 'undefined'){
 			refreshElement('#dipanggil');
 			$('#nomor_panggilan').html(panggilan.nomor_antrian);
 			$('#poli_panggilan').html(panggilan.poli);
 			$('#dipanggil').addClass('animate__animated animate__tada animate__repeat-3');
+			var ruangan = '';
+			if( panggilan.poli == 'Poli Umum' ){
+				ruangan = 'ruangperiksasatu';
+			} else if ( panggilan.poli == 'Pendaftaran' ){
+				ruangan = 'pendaftaran';
+			} else if (panggilan.poli == 'Antrian Kasir'){
+				ruangan = 'kasir';
+			} else if (panggilan.poli == 'Rapid Test'){
+				ruangan = 'rapidtest';
+			} else if (panggilan.poli == 'Antrian Farmasi'){
+				ruangan = 'farmasi';
+			}
+			panggilPasien(ruangan);
 		}
-		pglPasien([]);
+
 	});
 
 	function getChannelName(){
@@ -376,8 +388,8 @@
 			}
 		};
 	}
-	function panggilPasien(){
-		$.get(base + '/poli/ajax/panggil_pasien',
+	function panggilPasien(ruangan){
+		$.get(base + '/antrianperiksa/monitor/convert_sound_to_array',
 			{
 				nomor_antrian: $("#nomor_panggilan").html(),
 				ruangan:       ruangan
