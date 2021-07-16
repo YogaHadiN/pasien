@@ -169,6 +169,7 @@ return [
         /*
          * Application Service Providers...
          */
+        browner12\helpers\HelperServiceProvider::class,
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,

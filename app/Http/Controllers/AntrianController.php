@@ -83,57 +83,57 @@ class AntrianController extends Controller
 		$angka         = substr($nomor_antrian, 1);
 
 		$result = [];
-		$result[] =	'nomorantrian.mp3';
+		$result[] =	'nomorantrian';
 		if ( (int)$angka < 12 || $angka == '100' ) {
-			$result[] = $huruf . '.mp3';
-			$result[] = (int) $angka . '.mp3';
+			$result[] = $huruf;
+			$result[] = (int) $angka;
 		} else if ( (int) $angka % 100 == 0 ) {
 			$angka    = str_split($angka)[0];
-			$result[] = (int) $angka . '.mp3';
-			$result[] = 'ratus.mp3';
+			$result[] = (int) $angka;
+			$result[] = 'ratus';
 		} else if ( (int)$angka < 20  ) {
 			$angka    = substr($angka, 1);
-			$result[] = $huruf . '.mp3';
-			$result[] = (int) $angka . '.mp3';
-			$result[] = 'belas.mp3';
+			$result[] = $huruf;
+			$result[] = (int) $angka;
+			$result[] = 'belas';
 		} else if ( (int)$angka < 100  ) {
 			$angka = str_split($angka, 1);
 			if ($angka[1] != '0') {
-				$result[] = $huruf . '.mp3';
-				$result[] = (int) $angka[0] . '.mp3';
-				$result[] = 'puluh.mp3';
-				$result[] = (int) $angka[1] . '.mp3';
+				$result[] = $huruf;
+				$result[] = (int) $angka[0];
+				$result[] = 'puluh';
+				$result[] = (int) $angka[1];
 			} else {
-				$result[] =	$huruf . '.mp3';
-				$result[] =	(int) $angka[0] . '.mp3';
-				$result[] =	'puluh.mp3';
+				$result[] =	$huruf;
+				$result[] =	(int) $angka[0];
+				$result[] =	'puluh';
 			}
 		} else if ( (int)$angka < 112  ) {
 			$angka    = substr($angka, 1);
-			$result[] = $huruf . '.mp3';
-			$result[] = '100.mp3';
-			$result[] = (int) $angka . '.mp3';
+			$result[] = $huruf;
+			$result[] = '100';
+			$result[] = (int) $angka;
 		} else if ( (int)$angka < 120  ) {
 			$angka = substr($angka, 1);
 			$angka = str_split($angka);
-			$result[] =$huruf . '.mp3';
-			$result[] ='100.mp3';
-			$result[] =(int) $angka[1] . '.mp3';
-			$result[] ='belas.mp3';
+			$result[] =$huruf;
+			$result[] ='100';
+			$result[] =(int) $angka[1];
+			$result[] ='belas';
 		} else if ( (int)$angka < 200  ) {
 			$angka = substr($angka, 1);
 			$angka = str_split($angka);
 			if($angka[1] != '0'){
-				$result[] =	$huruf . '.mp3';
-				$result[] =	'100.mp3';
-				$result[] =	(int) $angka[0] . '.mp3';
-				$result[] ='puluh.mp3';
-				$result[] =	(int) $angka[1] . '.mp3';
+				$result[] =	$huruf;
+				$result[] =	'100';
+				$result[] =	(int) $angka[0];
+				$result[] ='puluh';
+				$result[] =	(int) $angka[1];
 			} else {
-				$result[] =	$huruf . '.mp3';
-				$result[] =	'100.mp3';
-				$result[] =	(int) $angka[0] . '.mp3';
-				$result[] =	'puluh.mp3';
+				$result[] =	$huruf;
+				$result[] =	'100';
+				$result[] =	(int) $angka[0];
+				$result[] =	'puluh';
 			}
 		} else if( (int)$angka < 999  ) {
 			$angka = str_split($angka);
@@ -141,38 +141,38 @@ class AntrianController extends Controller
 				$angka[1] == '0' ||
 				$angka[1] == '1'  &&  (int)$angka[2] < 2 
 			){
-				$result[] =	$huruf . '.mp3';
-				$result[] =	(int) $angka[0] . '.mp3';
-				$result[] =	'ratus.mp3';
-				$result[] =	(int) ($angka[1] . $angka[2]) . '.mp3';
+				$result[] =	$huruf;
+				$result[] =	(int) $angka[0];
+				$result[] =	'ratus';
+				$result[] =	(int) ($angka[1] . $angka[2]);
 			} else if(
 				(int)$angka[1] > 0 &&
 				$angka[2] == '0'
 			) {
-				$result[] =	$huruf . '.mp3';
-				$result[] =	(int) $angka[0] . '.mp3';
-				$result[] =	'ratus.mp3';
-				$result[] =	(int) $angka[1] . '.mp3';
-				$result[] =	'puluh.mp3';
+				$result[] =	$huruf;
+				$result[] =	(int) $angka[0];
+				$result[] =	'ratus';
+				$result[] =	(int) $angka[1];
+				$result[] =	'puluh';
 			} else if(
 			   	$angka[1] == '1'
 			) {
-				$result[] =	$huruf . '.mp3';
-				$result[] =	(int) $angka[0] . '.mp3';
-				$result[] =	'ratus.mp3';
-				$result[] =	(int) $angka[2] . '.mp3';
-				$result[] =	'belas.mp3';
+				$result[] =	$huruf;
+				$result[] =	(int) $angka[0];
+				$result[] =	'ratus';
+				$result[] =	(int) $angka[2];
+				$result[] =	'belas';
 			} else {
-				$result[] =	$huruf . '.mp3';
-				$result[] =	(int) $angka[0] . '.mp3';
-				$result[] =	'ratus.mp3';
-				$result[] =	(int) $angka[1] . '.mp3';
-				$result[] =	'puluh.mp3';
-				$result[] =	(int) $angka[2] . '.mp3';
+				$result[] =	$huruf;
+				$result[] =	(int) $angka[0];
+				$result[] =	'ratus';
+				$result[] =	(int) $angka[1];
+				$result[] =	'puluh';
+				$result[] =	(int) $angka[2];
 			}
 		}
-		$result[] =	'silahkanmenuju.mp3';
-		$result[] = $ruangan . '.mp3';
+		$result[] =	'silahkanmenuju';
+		$result[] = $ruangan;
 		return $result;
 	
 	}

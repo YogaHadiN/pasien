@@ -192,7 +192,139 @@
 	
 </p>
 <audio id="myAudio">
-  <source src="{{ secure_url('sound/bel.mp3') }}" type="audio/mpeg">
+  <source src="{{ flex_url('sound/bel.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<audio id="audio_nomorantrian">
+  <source src="{{ flex_url('sound/nomorantrian.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<audio id="audio_1">
+  <source src="{{ flex_url('sound/1.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<audio id="audio_2">
+  <source src="{{ flex_url('sound/2.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<audio id="audio_3">
+  <source src="{{ flex_url('sound/3.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<audio id="audio_4">
+  <source src="{{ flex_url('sound/4.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<audio id="audio_5">
+  <source src="{{ flex_url('sound/5.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<audio id="audio_6">
+  <source src="{{ flex_url('sound/6.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<audio id="audio_7">
+  <source src="{{ flex_url('sound/7.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<audio id="audio_8">
+  <source src="{{ flex_url('sound/8.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<audio id="audio_9">
+  <source src="{{ flex_url('sound/9.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<audio id="audio_10">
+  <source src="{{ flex_url('sound/10.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<audio id="audio_11">
+  <source src="{{ flex_url('sound/11.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<audio id="audio_belas">
+  <source src="{{ flex_url('sound/belas.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<audio id="audio_100">
+  <source src="{{ flex_url('sound/100.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<audio id="audio_a">
+  <source src="{{ flex_url('sound/a.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<audio id="audio_b">
+  <source src="{{ flex_url('sound/b.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<audio id="audio_c">
+  <source src="{{ flex_url('sound/c.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<audio id="audio_d">
+  <source src="{{ flex_url('sound/d.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<audio id="audio_e">
+  <source src="{{ flex_url('sound/e.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<audio id="audio_f">
+  <source src="{{ flex_url('sound/f.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<audio id="audio_g">
+  <source src="{{ flex_url('sound/g.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<audio id="audio_h">
+  <source src="{{ flex_url('sound/h.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<audio id="audio_i">
+  <source src="{{ flex_url('sound/i.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<audio id="audio_j">
+  <source src="{{ flex_url('sound/j.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<audio id="audio_k">
+  <source src="{{ flex_url('sound/k.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<audio id="audio_farmasi">
+  <source src="{{ flex_url('sound/farmasi.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<audio id="audio_kasir">
+  <source src="{{ flex_url('sound/kasir.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<audio id="audio_pendaftaran">
+  <source src="{{ flex_url('sound/pendaftaran.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<audio id="audio_rapidtest">
+  <source src="{{ flex_url('sound/rapidtest.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<audio id="audio_ratus">
+  <source src="{{ flex_url('sound/ratus.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<audio id="audio_ruangperiksa">
+  <source src="{{ flex_url('sound/ruangperiksa.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<audio id="audio_ruangperiksasatu">
+  <source src="{{ flex_url('sound/ruangperiksasatu.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<audio id="audio_silahkanmenuju">
+  <source src="{{ flex_url('sound/silahkanmenuju.mp3') }}" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
 <button type="button" class="btn btn-primary" onclick='pglPasien([]); return false'> Play Bel</button>
@@ -205,7 +337,7 @@
 <script src="https://js.pusher.com/5.1/pusher.min.js"></script>
 
 <script>
-	var base = "{{ secure_url('/') }}";
+	var base = "{{ flex_url('/') }}";
 	console.log('base');
 	console.log(base);
 	var hitung = 0
@@ -376,17 +508,77 @@
 	}
 	function pglPasien(sound){
 		var x     = document.getElementById("myAudio");
-		x.play();
-		var index = 0;
-		x.onended = function() {
-			if(index < sound.length){
-				x.src=base + '/sound/' + sound[index];
-				x.play();
-				index++;
-			} else {
-				x.src=base + '/sound/bel.mp3';
+		var m     = [];
+		for (var i = 0, len = sound.length; i < len; i++) {
+			m[i] = document.getElementById("audio_" + sound[i]);
+		}
+	   x.onended=function(){
+			if (typeof m[0] === 'object' && m[0] !== null) {
+			  m[0].play();
 			}
 		};
+
+		m[0].onended=function(){
+			if (typeof m[1] === 'object' && m[1] !== null) {
+			  m[1].play();
+			}
+		};
+		m[1].onended=function(){
+			if (typeof m[2] === 'object' && m[2] !== null) {
+			  m[2].play();
+			}
+		};
+		m[2].onended=function(){
+			if (typeof m[3] === 'object' && m[3] !== null) {
+			  m[3].play();
+			}
+		};
+		m[3].onended=function(){
+			if (typeof m[4] === 'object' && m[4] !== null) {
+			  m[4].play();
+			}
+		};
+		m[4].onended=function(){
+			if (typeof m[5] === 'object' && m[5] !== null) {
+			  m[5].play();
+			}
+		};
+		m[5].onended=function(){
+			if (typeof m[6] === 'object' && m[6] !== null) {
+			  m[6].play();
+			}
+		};
+		m[6].onended=function(){
+			if (typeof m[7] === 'object' && m[7] !== null) {
+			  m[7].play();
+			}
+		};
+		m[7].onended=function(){
+			if (typeof m[8] === 'object' && m[8] !== null) {
+			  m[8].play();
+			}
+		};
+		m[8].onended=function(){
+			if (typeof m[9] === 'object' && m[9] !== null) {
+			  m[9].play();
+			}
+		};
+		m[9].onended=function(){
+			if (typeof m[10] === 'object' && m[10] !== null) {
+			  m[10].play();
+			}
+		};
+		m[10].onended=function(){
+			if (typeof m[11] === 'object' && m[11] !== null) {
+			  m[11].play();
+			}
+		};
+		m[11].onended=function(){
+			if (typeof m[12] === 'object' && m[12] !== null) {
+			  m[12].play();
+			}
+		};
+		x.play();
 	}
 	function panggilPasien(ruangan){
 		$.get(base + '/antrianperiksa/monitor/convert_sound_to_array',
