@@ -512,72 +512,78 @@
 		for (var i = 0, len = sound.length; i < len; i++) {
 			m[i] = document.getElementById("audio_" + sound[i]);
 		}
+		console.log('m[5]');
+		console.log(m[5]);
+		console.log("typeof m[4] === 'object' && typeof m[4] !== 'undefined'");
+		console.log(typeof m[4] === 'object' && typeof m[4] !== 'undefined');
+		console.log("typeof m[5] === 'object' && typeof m[5] !== 'undefined'");
+		console.log(typeof m[5] === 'object' && typeof m[5] !== 'undefined');
 	   x.onended=function(){
-			if (typeof m[0] === 'object' && m[0] !== null) {
+			if (typeof m[0] === 'object' && typeof m[0] !== 'undefined') {
 			  m[0].play();
 			}
 		};
 
-		m[0].onended=function(){
-			if (typeof m[1] === 'object' && m[1] !== null) {
+		if (typeof m[1] === 'object' && typeof m[1] !== 'undefined') {
+			m[0].onended=function(){
 			  m[1].play();
-			}
-		};
-		m[1].onended=function(){
-			if (typeof m[2] === 'object' && m[2] !== null) {
+			};
+		}
+		if (typeof m[2] === 'object' && typeof m[2] !== 'undefined') {
+			m[1].onended=function(){
 			  m[2].play();
-			}
-		};
-		m[2].onended=function(){
-			if (typeof m[3] === 'object' && m[3] !== null) {
+			};
+		}
+		if (typeof m[3] === 'object' && typeof m[3] !== 'undefined') {
+			m[2].onended=function(){
 			  m[3].play();
-			}
-		};
-		m[3].onended=function(){
-			if (typeof m[4] === 'object' && m[4] !== null) {
+			};
+		}
+		if (typeof m[4] === 'object' && typeof m[4] !== 'undefined') {
+			m[3].onended=function(){
 			  m[4].play();
-			}
-		};
-		m[4].onended=function(){
-			if (typeof m[5] === 'object' && m[5] !== null) {
+			};
+		}
+		if (typeof m[5] === 'object' && typeof m[5] !== 'undefined') {
+			m[4].onended=function(){
 			  m[5].play();
-			}
-		};
-		m[5].onended=function(){
-			if (typeof m[6] === 'object' && m[6] !== null) {
+			};
+		}
+		if (typeof m[6] === 'object' && typeof m[6] !== 'undefined') {
+			m[5].onended=function(){
 			  m[6].play();
-			}
-		};
-		m[6].onended=function(){
-			if (typeof m[7] === 'object' && m[7] !== null) {
+			};
+		}
+		if (typeof m[7] === 'object' && typeof m[7] !== 'undefined') {
+			m[6].onended=function(){
 			  m[7].play();
-			}
-		};
-		m[7].onended=function(){
-			if (typeof m[8] === 'object' && m[8] !== null) {
+			};
+		}
+		if (typeof m[8] === 'object' && typeof m[8] !== 'undefined') {
+			m[7].onended=function(){
 			  m[8].play();
-			}
-		};
-		m[8].onended=function(){
-			if (typeof m[9] === 'object' && m[9] !== null) {
+			};
+		}
+		if (typeof m[9] === 'object' && typeof m[9] !== 'undefined') {
+			m[8].onended=function(){
 			  m[9].play();
-			}
-		};
-		m[9].onended=function(){
-			if (typeof m[10] === 'object' && m[10] !== null) {
+			};
+		}
+		if (typeof m[10] === 'object' && typeof m[10] !== 'undefined') {
+			m[9].onended=function(){
 			  m[10].play();
-			}
-		};
-		m[10].onended=function(){
-			if (typeof m[11] === 'object' && m[11] !== null) {
+			};
+		}
+		if (typeof m[11] === 'object' && typeof m[11] !== 'undefined') {
+			m[10].onended=function(){
 			  m[11].play();
-			}
-		};
-		m[11].onended=function(){
-			if (typeof m[12] === 'object' && m[12] !== null) {
+			};
+		}
+		if (typeof m[12] === 'object' && typeof m[12] !== 'undefined') {
+			m[11].onended=function(){
 			  m[12].play();
-			}
-		};
+			};
+		}
 		x.play();
 	}
 	function panggilPasien(ruangan){
