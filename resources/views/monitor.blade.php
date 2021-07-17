@@ -247,6 +247,10 @@
   <source src="{{ flex_url('sound/belas.mp3') }}" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
+<audio id="audio_puluh">
+  <source src="{{ flex_url('sound/puluh.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
 <audio id="audio_100">
   <source src="{{ flex_url('sound/100.mp3') }}" type="audio/mpeg">
   Your browser does not support the audio element.
