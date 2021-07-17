@@ -337,11 +337,7 @@
 <script src="https://js.pusher.com/5.1/pusher.min.js"></script>
 
 <script>
-	@if( request()->secure() )
-		var base = "{{ secure_url('/') }}";
-	@else
-		var base = "{{ url('/') }}";
-	@endif
+	var base = "{{ secure_url('/') }}";
 	console.log('base');
 	console.log(base);
 	var hitung = 0
