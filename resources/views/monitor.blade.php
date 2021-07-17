@@ -507,6 +507,8 @@
 		$("#antrian_farmasi").html('');
 	}
 	function pglPasien(sound){
+		console.log('sound');
+		console.log(sound);
 		var x     = document.getElementById("myAudio");
 		var m     = [];
 		for (var i = 0, len = sound.length; i < len; i++) {
