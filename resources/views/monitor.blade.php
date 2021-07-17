@@ -512,74 +512,69 @@
 		for (var i = 0, len = sound.length; i < len; i++) {
 			m[i] = document.getElementById("audio_" + sound[i]);
 		}
-		console.log('m[5]');
-		console.log(m[5]);
-		console.log("typeof m[4] === 'object' && typeof m[4] !== 'undefined'");
-		console.log(typeof m[4] === 'object' && typeof m[4] !== 'undefined');
-		console.log("typeof m[5] === 'object' && typeof m[5] !== 'undefined'");
-		console.log(typeof m[5] === 'object' && typeof m[5] !== 'undefined');
-	   x.onended=function(){
-			if (typeof m[0] === 'object' && typeof m[0] !== 'undefined') {
+
+		if (typeof m[0] !== 'undefined') {
+			x.onended=function(){
 			  m[0].play();
 			}
 		};
 
-		if (typeof m[1] === 'object' && typeof m[1] !== 'undefined') {
+		if (typeof m[1] !== 'undefined') {
 			m[0].onended=function(){
 			  m[1].play();
 			};
 		}
-		if (typeof m[2] === 'object' && typeof m[2] !== 'undefined') {
+		if (typeof m[2] !== 'undefined') {
 			m[1].onended=function(){
 			  m[2].play();
 			};
 		}
-		if (typeof m[3] === 'object' && typeof m[3] !== 'undefined') {
+		if (typeof m[3] !== 'undefined') {
 			m[2].onended=function(){
 			  m[3].play();
 			};
 		}
-		if (typeof m[4] === 'object' && typeof m[4] !== 'undefined') {
+		if (typeof m[4] !== 'undefined') {
 			m[3].onended=function(){
 			  m[4].play();
 			};
 		}
-		if (typeof m[5] === 'object' && typeof m[5] !== 'undefined') {
+		if (typeof m[5] !== 'undefined') {
 			m[4].onended=function(){
 			  m[5].play();
 			};
 		}
-		if (typeof m[6] === 'object' && typeof m[6] !== 'undefined') {
+		if (typeof m[6] !== 'undefined') {
 			m[5].onended=function(){
 			  m[6].play();
 			};
 		}
-		if (typeof m[7] === 'object' && typeof m[7] !== 'undefined') {
+		if (typeof m[7] !== 'undefined') {
 			m[6].onended=function(){
 			  m[7].play();
 			};
 		}
-		if (typeof m[8] === 'object' && typeof m[8] !== 'undefined') {
+		if (typeof m[8] !== 'undefined') {
 			m[7].onended=function(){
 			  m[8].play();
 			};
 		}
-		if (typeof m[9] === 'object' && typeof m[9] !== 'undefined') {
+		if (typeof m[9] !== 'undefined') {
 			m[8].onended=function(){
 			  m[9].play();
 			};
 		}
-		if (typeof m[10] === 'object' && typeof m[10] !== 'undefined') {
+		if ( typeof m[10] !== 'undefined') {
 			m[9].onended=function(){
 			  m[10].play();
 			};
 		}
-		if (typeof m[11] === 'object' && typeof m[11] !== 'undefined') {
+		if ( typeof m[11] !== 'undefined') {
 			m[10].onended=function(){
 			  m[11].play();
 			};
 		}
-		if (typeof m[12] === 'object' && typeof m[12] !== 'undefined') {
+		if ( typeof m[12] !== 'undefined') {
 			m[11].onended=function(){
 			  m[12].play();
 			};
