@@ -534,6 +534,8 @@
 			  m[3].play();
 			};
 		}
+		console.log('m[3]');
+		console.log(m[3]);
 		if (typeof m[4] !== 'undefined') {
 			m[3].onended=function(){
 			  m[4].play();
