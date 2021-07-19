@@ -437,7 +437,7 @@
 			$("#antrian_kasir").html(temp);
 		}
 
-		var antrian_farmasi = antrian_by_type['App\\AntrianFarmasi'];
+		var antrian_farmasi = antrian_by_type['antrian_farmasi'];
 		if (typeof antrian_farmasi !== 'undefined') {
 			var temp = '';
 			for (let a = 0; a < antrian_farmasi.length; a++) {
