@@ -149,17 +149,6 @@
 				</div>
 			</div>
 		</div>
-		{{-- <div class="column left no-float"> --}}
-		{{-- </div> --}}
-		{{-- <div class="column right full-height"> --}}
-		{{-- 	<h1 id="jam"></h1> --}}
-		{{-- 	<div> --}}
-		{{-- 		<div class="list"><span id="nomor_poli_umum">-</span>/<span id="jumlah_poli_umum">-</span></div> --}}
-		{{-- 		<div class="list"><span id="nomor_poli_gigi">-</span>/<span id="jumlah_poli_gigi">-</span></div> --}}
-		{{-- 		<div class="list"><span id="nomor_poli_bidan">-</span>/<span id="jumlah_poli_bidan">-</span></div> --}}
-		{{-- 		<div class="list"><span id="nomor_poli_estetik">-</span>/<span id="jumlah_poli_estetik">-</span></div> --}}
-		{{-- 	</div> --}}
-		{{-- </div> --}}
     </div>
 	<div class="row2 text-center">
 		<div class="column2 no-float">
@@ -379,14 +368,6 @@
 		console.log(typeof panggilan !== 'undefined');
 
 
-		$('#nomor_poli_umum').html(dt[1].nomor_antrian_terakhir);
-		$('#jumlah_poli_umum').html(dt[1].jumlah);
-		$('#nomor_poli_gigi').html(dt[2].nomor_antrian_terakhir);
-		$('#jumlah_poli_gigi').html(dt[2].jumlah);
-		$('#nomor_poli_bidan').html(dt[3].nomor_antrian_terakhir);
-		$('#jumlah_poli_bidan').html(dt[3].jumlah);
-		$('#nomor_poli_estetik').html(dt[4].nomor_antrian_terakhir);
-		$('#jumlah_poli_estetik').html(dt[4].jumlah);
 
 		$("#antrian_terakhir_poli_umum").html(antrian_terakhir_per_poli[1]);
 		$("#antrian_terakhir_poli_gigi").html(antrian_terakhir_per_poli[2]);
@@ -403,7 +384,7 @@
 		var jenis_antrian_ids = data.text.jenis_antrian_ids;
 
 		for (let a = 0; a < jenis_antrian_ids.length; a++) {
-			var temp = '';
+			var temp            = '';
 			var antrian_periksa = antrian_by_type.antrian_periksa[jenis_antrian_ids[a].id]
 			if (typeof antrian_periksa !== 'undefined') {
 				for (let i = 0; i < antrian_periksa.length; i++) {
