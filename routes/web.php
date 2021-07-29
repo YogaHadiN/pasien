@@ -26,3 +26,5 @@ Route::get('validasi/antibodi/{id}', 'ValidateController@antibodi');
 Route::get('validasi/surat_sakit/{id}', 'ValidateController@surat_sakit');
 Route::get('antrianperiksa/fail', 'AntrianController@fail');
 Route::get('antrianperiksa/{id}', 'AntrianController@antri');
+Route::get('antrianperiksa/monitor/getData/{panggil_pasien}', 'AntrianController@updateJumlahAntrian');
+

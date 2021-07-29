@@ -330,9 +330,8 @@
 <script src="https://js.pusher.com/5.1/pusher.min.js"></script>
 
 <script>
-	var base = "{{ secure_url('/') }}";
-	console.log('base');
-	console.log(base);
+	var base = "{{ url('/') }}";
+	{{-- var base = "{{ secure_url('/') }}"; --}}
 	var hitung = 0
 	setInterval(function(){
 		var d = new Date(); // for now
@@ -355,99 +354,109 @@
 	var channel = pusher.subscribe(channel_name);
 	var nomor_antrian = '';
 	channel.bind(event_name, function(data) {
-		var panggilan                 = data.text.panggilan;
-		var dt                        = data.text.data;
-		var antrian_terakhir_per_poli = data.text.antrian_terakhir_per_poli;
-		var antrian_by_type           = data.text.antrian_by_type;
-		clear(panggilan);
-		console.log('data');
-		console.log(data);
-		console.log('panggilan');
-		console.log(panggilan);
-		console.log("typeof panggilan !== 'undefined'");
-		console.log(typeof panggilan !== 'undefined');
+		if( data.text ){
+			var panggil_pasien = 1;
+		} else {
+			var panggil_pasien = 0;
+		}
+		$.get(base + '/antrianperiksa/monitor/getData/' + panggil_pasien,
+			{
+			},
+			function (data, textStatus, jqXHR) {
+				var panggilan                 = data.panggilan;
+				var dt                        = data.data;
+				var antrian_terakhir_per_poli = data.antrian_terakhir_per_poli;
+				var antrian_by_type           = data.antrian_by_type;
+				clear(panggilan);
+				console.log('data');
+				console.log(data);
+				console.log('panggilan');
+				console.log(panggilan);
+				console.log("typeof panggilan !== 'undefined'");
+				console.log(typeof panggilan !== 'undefined');
 
 
 
-		$("#antrian_terakhir_poli_umum").html(antrian_terakhir_per_poli[1]);
-		$("#antrian_terakhir_poli_gigi").html(antrian_terakhir_per_poli[2]);
-		$("#antrian_terakhir_poli_bidan").html(antrian_terakhir_per_poli[3]);
-		$("#antrian_terakhir_poli_estetik").html(antrian_terakhir_per_poli[4]);
+				$("#antrian_terakhir_poli_umum").html(antrian_terakhir_per_poli[1]);
+				$("#antrian_terakhir_poli_gigi").html(antrian_terakhir_per_poli[2]);
+				$("#antrian_terakhir_poli_bidan").html(antrian_terakhir_per_poli[3]);
+				$("#antrian_terakhir_poli_estetik").html(antrian_terakhir_per_poli[4]);
 
-		$("#antrian_terakhir_poli_prolanis").html(antrian_terakhir_per_poli[6]);
-		$("#antrian_terakhir_poli_rapid_test").html(antrian_terakhir_per_poli[7]);
-		$("#antrian_terakhir_poli_mcu").html(antrian_terakhir_per_poli[8]);
+				$("#antrian_terakhir_poli_prolanis").html(antrian_terakhir_per_poli[6]);
+				$("#antrian_terakhir_poli_rapid_test").html(antrian_terakhir_per_poli[7]);
+				$("#antrian_terakhir_poli_mcu").html(antrian_terakhir_per_poli[8]);
 
-		$("#antrian_terakhir_kasir").html(antrian_terakhir_per_poli['antrian_kasir']);
-		$("#antrian_terakhir_farmasi").html(antrian_terakhir_per_poli['antrian_farmasi']);
+				$("#antrian_terakhir_kasir").html(antrian_terakhir_per_poli['antrian_kasir']);
+				$("#antrian_terakhir_farmasi").html(antrian_terakhir_per_poli['antrian_farmasi']);
 
-		var jenis_antrian_ids = data.text.jenis_antrian_ids;
+				var jenis_antrian_ids = data.jenis_antrian_ids;
 
-		for (let a = 0; a < jenis_antrian_ids.length; a++) {
-			var temp            = '';
-			var antrian_periksa = antrian_by_type.antrian_periksa[jenis_antrian_ids[a].id]
-			if (typeof antrian_periksa !== 'undefined') {
-				for (let i = 0; i < antrian_periksa.length; i++) {
-					if(
-							antrian_periksa[i].antriable_type !== 'App\\AntrianApotek' &&
-							antrian_periksa[i].antriable_type !== 'App\\AntrianKasir' &&
-							antrian_periksa[i].antriable_type !== 'App\\AntrianFarmasi' &&
-							antrian_periksa[i] !== jenis_antrian_ids[a].nomor_antrian_terakhir 
-						)
-					{
-						if( antrian_periksa[i] !== jenis_antrian_ids[a].nomor_antrian_terakhir ){
-							temp += '<div>'
-							temp += ' ' + antrian_periksa[i].nomor_antrian + ' '
-							temp += '</div>'
+				for (let a = 0; a < jenis_antrian_ids.length; a++) {
+					var temp            = '';
+					var antrian_periksa = antrian_by_type.antrian_periksa[jenis_antrian_ids[a].id]
+					if (typeof antrian_periksa !== 'undefined') {
+						for (let i = 0; i < antrian_periksa.length; i++) {
+							if(
+									antrian_periksa[i].antriable_type !== 'App\\AntrianApotek' &&
+									antrian_periksa[i].antriable_type !== 'App\\AntrianKasir' &&
+									antrian_periksa[i].antriable_type !== 'App\\AntrianFarmasi' &&
+									antrian_periksa[i] !== jenis_antrian_ids[a].nomor_antrian_terakhir 
+								)
+							{
+								if( antrian_periksa[i] !== jenis_antrian_ids[a].nomor_antrian_terakhir ){
+									temp += '<div>'
+									temp += ' ' + antrian_periksa[i].nomor_antrian + ' '
+									temp += '</div>'
+								}
+
+							}
 						}
-
+						$("#antrian_poli" + "_" + jenis_antrian_ids[a].id).html(temp);
 					}
 				}
-				$("#antrian_poli" + "_" + jenis_antrian_ids[a].id).html(temp);
-			}
-		}
 
-		var antrian_kasir = antrian_by_type.antrian_kasir
-		if (typeof antrian_kasir !== 'undefined') {
-			var temp = '';
-			for (let a = 0; a < antrian_kasir.length; a++) {
-				temp += '<div>';
-				temp += ' ' + antrian_kasir[a].nomor_antrian + '';
-				temp += '</div>';
-			}
-			$("#antrian_kasir").html(temp);
-		}
+				var antrian_kasir = antrian_by_type.antrian_kasir
+				if (typeof antrian_kasir !== 'undefined') {
+					var temp = '';
+					for (let a = 0; a < antrian_kasir.length; a++) {
+						temp += '<div>';
+						temp += ' ' + antrian_kasir[a].nomor_antrian + '';
+						temp += '</div>';
+					}
+					$("#antrian_kasir").html(temp);
+				}
 
-		var antrian_farmasi = antrian_by_type['antrian_farmasi'];
-		if (typeof antrian_farmasi !== 'undefined') {
-			var temp = '';
-			for (let a = 0; a < antrian_farmasi.length; a++) {
-				temp += '<div>';
-				temp += ' ' + antrian_farmasi[a].nomor_antrian + '';
-				temp += '</div>';
+				var antrian_farmasi = antrian_by_type['antrian_farmasi'];
+				if (typeof antrian_farmasi !== 'undefined') {
+					var temp = '';
+					for (let a = 0; a < antrian_farmasi.length; a++) {
+						temp += '<div>';
+						temp += ' ' + antrian_farmasi[a].nomor_antrian + '';
+						temp += '</div>';
+					}
+					$("#antrian_farmasi").html(temp);
+				}
+				if(typeof panggilan !== 'undefined'){
+					refreshElement('#dipanggil');
+					$('#nomor_panggilan').html(panggilan.nomor_antrian);
+					$('#poli_panggilan').html(panggilan.poli);
+					$('#dipanggil').addClass('animate__animated animate__tada animate__repeat-3');
+					var ruangan = '';
+					if( panggilan.poli == 'Poli Umum' ){
+						ruangan = 'ruangperiksasatu';
+					} else if ( panggilan.poli == 'Pendaftaran' ){
+						ruangan = 'pendaftaran';
+					} else if (panggilan.poli == 'Antrian Kasir'){
+						ruangan = 'kasir';
+					} else if (panggilan.poli == 'Rapid Test'){
+						ruangan = 'rapidtest';
+					} else if (panggilan.poli == 'Antrian Farmasi'){
+						ruangan = 'farmasi';
+					}
+					panggilPasien(ruangan);
+				}
 			}
-			$("#antrian_farmasi").html(temp);
-		}
-		if(typeof panggilan !== 'undefined'){
-			refreshElement('#dipanggil');
-			$('#nomor_panggilan').html(panggilan.nomor_antrian);
-			$('#poli_panggilan').html(panggilan.poli);
-			$('#dipanggil').addClass('animate__animated animate__tada animate__repeat-3');
-			var ruangan = '';
-			if( panggilan.poli == 'Poli Umum' ){
-				ruangan = 'ruangperiksasatu';
-			} else if ( panggilan.poli == 'Pendaftaran' ){
-				ruangan = 'pendaftaran';
-			} else if (panggilan.poli == 'Antrian Kasir'){
-				ruangan = 'kasir';
-			} else if (panggilan.poli == 'Rapid Test'){
-				ruangan = 'rapidtest';
-			} else if (panggilan.poli == 'Antrian Farmasi'){
-				ruangan = 'farmasi';
-			}
-			panggilPasien(ruangan);
-		}
-
+		);
 	});
 
 	function getChannelName(){
