@@ -18,6 +18,9 @@ use App\User;
 /* 	return User::all(); */
 /* }); */
 
+Route::get('phpinfo', function(){
+    phpinfo();
+});
 Route::get('/', 'AntrianController@index');
 Route::get('antrianperiksa/monitor', 'AntrianController@monitor');
 Route::get('antrianperiksa/monitor/convert_sound_to_array', 'AntrianController@convertSoundToArray');

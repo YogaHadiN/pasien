@@ -330,8 +330,8 @@
 <script src="https://js.pusher.com/5.1/pusher.min.js"></script>
 
 <script>
-	{{-- var base = "{{ url('/') }}"; --}}
-	var base = "{{ secure_url('/') }}";
+	var base = "{{ url('/') }}";
+	{{-- var base = "{{ secure_url('/') }}"; --}}
 	var hitung = 0
 	setInterval(function(){
 		var d = new Date(); // for now
