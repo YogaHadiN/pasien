@@ -237,7 +237,7 @@ class AntrianController extends Controller
 		/* dd($data['antrian_terakhir_per_poli']); */
 		if ( $panggil_pasien ) {
 			$antrian_dipanggil = $antrians->sortByDesc('updated_at')->first();
-			dd( '$antrian_dipanggil', $antrian_dipanggil);
+			dd( 'antrian_dipanggil', $antrian_dipanggil );
 			$data['panggilan']['nomor_antrian'] = $antrian_dipanggil->nomor_antrian;
 			if (
 				$antrian_dipanggil->antriable_type == 'App\Antrian'
