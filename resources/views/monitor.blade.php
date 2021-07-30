@@ -354,6 +354,8 @@
 	var channel = pusher.subscribe(channel_name);
 	var nomor_antrian = '';
 	channel.bind(event_name, function(data) {
+		console.log('data.text');
+		console.log(data.text);
 		if( data.text ){
 			var panggil_pasien = 1;
 		} else {
