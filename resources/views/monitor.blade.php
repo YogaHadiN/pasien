@@ -322,9 +322,6 @@
 </audio>
 <button type="button" class="btn btn-primary" onclick='pglPasien([]); return false'> Play Bel</button>
 </div>
-<div id="flex_url" class="name">
-	{{ flex_url('/') }}
-</div>
 
 
 <!-- Bootstrap core JavaScript -->
@@ -334,9 +331,8 @@
 
 
 <script>
-	var base = $.trim($('#flex_url').html());
 	{{-- var base = "{{ url('/') }}"; --}}
-	{{-- var base = "{{ secure_url('/') }}"; --}}
+	var base = "{{ secure_url('/') }}";
 	var hitung = 0
 	setInterval(function(){
 		var d = new Date(); // for now
