@@ -322,6 +322,9 @@
 </audio>
 <button type="button" class="btn btn-primary" onclick='pglPasien([]); return false'> Play Bel</button>
 </div>
+<div id="flex_url" class="name">
+	{{ flex_url('/') }}
+</div>
 
 
 <!-- Bootstrap core JavaScript -->
@@ -329,9 +332,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="https://js.pusher.com/5.1/pusher.min.js"></script>
 
+
 <script>
+	var base = $.trim($('#flex_url').html());
 	{{-- var base = "{{ url('/') }}"; --}}
-	var base = "{{ secure_url('/') }}";
+	{{-- var base = "{{ secure_url('/') }}"; --}}
 	var hitung = 0
 	setInterval(function(){
 		var d = new Date(); // for now
@@ -398,20 +403,9 @@
 					var antrian_periksa = antrian_by_type.antrian_periksa[jenis_antrian_ids[a].id]
 					if (typeof antrian_periksa !== 'undefined') {
 						for (let i = 0; i < antrian_periksa.length; i++) {
-							if(
-									antrian_periksa[i].antriable_type !== 'App\\AntrianApotek' &&
-									antrian_periksa[i].antriable_type !== 'App\\AntrianKasir' &&
-									antrian_periksa[i].antriable_type !== 'App\\AntrianFarmasi' &&
-									antrian_periksa[i] !== jenis_antrian_ids[a].nomor_antrian_terakhir 
-								)
-							{
-								if( antrian_periksa[i] !== jenis_antrian_ids[a].nomor_antrian_terakhir ){
-									temp += '<div>'
-									temp += ' ' + antrian_periksa[i].nomor_antrian + ' '
-									temp += '</div>'
-								}
-
-							}
+							temp += '<div>'
+							temp += ' ' + antrian_periksa[i].nomor_antrian + ' '
+							temp += '</div>'
 						}
 						$("#antrian_poli" + "_" + jenis_antrian_ids[a].id).html(temp);
 					}

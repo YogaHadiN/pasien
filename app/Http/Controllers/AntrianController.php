@@ -316,15 +316,11 @@ class AntrianController extends Controller
 		}
 		$bisa                 = [];
 		$tidak_bisa           = [];
-		$antrian_terkahir_ids = [];
 		foreach ($jenis_antrians as $j) {
 			if ( isset( $j->antrian_terakhir_id ) ) {
-				$antrian_terkahir_ids[] = $j->antrian_terakhir->nomor_antrian;
 				$data['jenis_antrian_ids'][] = 
 					[
-						'id'                     => $j->id,
-						'nomor_antrian_terakhir' => $j->antrian_terakhir->nomor_antrian,
-						'antriable_type' => $j->antrian_terakhir->antriable_type
+						'id'             => $j->id
 					];
 			}
 		}
