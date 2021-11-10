@@ -8,6 +8,7 @@ use App\AntrianPoli;
 use App\Antrian;
 use App\JenisAntrian;
 use App\Periksa;
+use App\User;
 use Input;
 
 class AntrianController extends Controller
@@ -17,7 +18,7 @@ class AntrianController extends Controller
         $this->middleware('avail')->only('antri');
     }
 	  public function index(){
-		  return date('Y-m-d H:i:s');
+		  return User::find(28)->updated_at->format('Y-m-d H:i:s');
 	  }
 	  
 	public function antri($id){
