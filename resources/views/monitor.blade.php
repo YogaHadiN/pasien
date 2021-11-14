@@ -355,8 +355,6 @@
 	var channel = pusher.subscribe(channel_name);
 	var nomor_antrian = '';
 	channel.bind(event_name, function(data) {
-		console.log('data.text');
-		console.log(data.text);
 		if( data.text ){
 			var panggil_pasien = 1;
 		} else {
@@ -366,17 +364,19 @@
 			{
 			},
 			function (data, textStatus, jqXHR) {
+				console.log('dataxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
+				console.log(data);
 				var panggilan                 = data.panggilan;
 				var dt                        = data.data;
 				var antrian_terakhir_per_poli = data.antrian_terakhir_per_poli;
 				var antrian_by_type           = data.antrian_by_type;
 				clear(panggilan);
-				console.log('data');
-				console.log(data);
-				console.log('panggilan');
-				console.log(panggilan);
-				console.log("typeof panggilan !== 'undefined'");
-				console.log(typeof panggilan !== 'undefined');
+				{{-- console.log('data'); --}}
+				{{-- console.log(data); --}}
+				{{-- console.log('panggilan'); --}}
+				{{-- console.log(panggilan); --}}
+				{{-- console.log("typeof panggilan !== 'undefined'"); --}}
+				{{-- console.log(typeof panggilan !== 'undefined'); --}}
 
 
 
@@ -493,8 +493,6 @@
 		$("#antrian_farmasi").html('');
 	}
 	function pglPasien(sound){
-		console.log('sound');
-		console.log(sound);
 		var x     = document.getElementById("myAudio");
 		var m     = [];
 		for (var i = 0, len = sound.length; i < len; i++) {
@@ -522,8 +520,6 @@
 			  m[3].play();
 			};
 		}
-		console.log('m[3]');
-		console.log(m[3]);
 		if (typeof m[4] !== 'undefined') {
 			m[3].onended=function(){
 			  m[4].play();
