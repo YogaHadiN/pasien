@@ -190,8 +190,7 @@ class AntrianController extends Controller
 								->where('antriable_type', 'not like', 'App\Periksa')
 								->orderBy('id')
 								->get();
-		/* return $today; */
-		return $antrians;
+		/* return $antrians; */
 		$jenis_antrian  = JenisAntrian::with(
 			'antrian_terakhir.jenis_antrian', 
 			'antrian_terakhir.antriable'
