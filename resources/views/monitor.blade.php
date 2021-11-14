@@ -366,6 +366,7 @@
 			function (data, textStatus, jqXHR) {
 				console.log('dataxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
 				console.log(data);
+				return false;
 				var panggilan                 = data.panggilan;
 				var dt                        = data.data;
 				var antrian_terakhir_per_poli = data.antrian_terakhir_per_poli;
