@@ -180,15 +180,17 @@ class AntrianController extends Controller
 	
 	}
 	public function updateJumlahAntrian( $panggil_pasien = true ){
+		$today = date('Y-m-d');
 		$antrians       = Antrian::with(
 									'jenis_antrian.poli_antrian', 
 									'antriable', 
 									'jenis_antrian.antrian_terakhir'
 								)
-								->where('created_at', 'like', date('Y-m-d') . '%')
+								->where('created_at', 'like', $today . '%')
 								->where('antriable_type', 'not like', 'App\\\Periksa')
 								->orderBy('id')
 								->get();
+		return $today;
 		return $antrians;
 		$jenis_antrian  = JenisAntrian::with(
 			'antrian_terakhir.jenis_antrian', 
