@@ -189,7 +189,7 @@ class AntrianController extends Controller
 								->whereRaw('created_at between "%Y-%m-%d 00:00:00" and "%Y-%m-%d 23:59:59"')
 								->where('antriable_type', 'not like', 'App\\\Periksa')
 								->orderBy('id')
-								->get();
+								->toSql();
 		/* return $today; */
 		return $antrians;
 		$jenis_antrian  = JenisAntrian::with(
