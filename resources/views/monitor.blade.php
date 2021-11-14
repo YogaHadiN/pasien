@@ -369,12 +369,12 @@
 				var antrian_terakhir_per_poli = data.antrian_terakhir_per_poli;
 				var antrian_by_type           = data.antrian_by_type;
 				clear(panggilan);
-				{{-- console.log('data'); --}}
-				{{-- console.log(data); --}}
-				{{-- console.log('panggilan'); --}}
-				{{-- console.log(panggilan); --}}
-				{{-- console.log("typeof panggilan !== 'undefined'"); --}}
-				{{-- console.log(typeof panggilan !== 'undefined'); --}}
+				console.log('data');
+				console.log(data);
+				console.log('panggilan');
+				console.log(panggilan);
+				console.log("typeof panggilan !== 'undefined'");
+				console.log(typeof panggilan !== 'undefined');
 
 
 
