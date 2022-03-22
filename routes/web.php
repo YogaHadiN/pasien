@@ -23,6 +23,7 @@ Route::get('phpinfo', function(){
 });
 Route::get('/', 'AntrianController@index');
 Route::get('antrianperiksa/monitor', 'AntrianController@monitor');
+Route::post('wablas/webhook', 'AntrianController@webhook');
 Route::get('antrianperiksa/monitor/convert_sound_to_array', 'AntrianController@convertSoundToArray');
 Route::get('validasi/antigen/{id}', 'ValidateController@antigen');
 Route::get('validasi/antibodi/{id}', 'ValidateController@antibodi');
